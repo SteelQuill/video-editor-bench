@@ -1,272 +1,224 @@
 #!/usr/bin/env python3
-"""Generate HARDER questions targeting v2 failure modes.
+"""HARDER question set for the v2 benchmark — grounded in timeline.py + render.py.
 
-Output: benchmark/v2/questions_harder.json  (same schema as questions.json)
+Single source of truth: every question and its ground truth comes from the
+documented facts in benchmark/v2/src/timeline.py (frames @30fps) and the
+rendered card/overlay text in render.py.
 
-These are ADDITIONAL questions, not a replacement for the 49 in questions.json.
-They target the categories where every local model (and even TwelveLabs pass-1)
-scored 0 or near-0:
+Emits:
+  benchmark/v2/questions_harder.json        (public — questions only)
+  benchmark/v2/hidden/gt_rules_harder.json  (private — GT + scoring rules)
 
-  - transition-timing   (precise second of transition start)
-  - transition-duration (precise seconds of dissolve/wipe length)
-  - bad-edit-detection  (continuity errors an editor would catch)
-  - object-count        (precise counts)
-  - not-observable      (things frame-sampling cannot determine - should REFUSE)
-  - shot-count          (precise segment count incl. flash inserts)
-  - ocr-title           (exact on-screen text)
-
-Usage:
-  python3 make_harder_questions.py > benchmark/v2/questions_harder.json
-
-NOTE: These are written against the known structure of benchmark.mp4
-(65s, 17 transitions, 15 segments) from your v2 report. If your actual
-video differs, edit the questions/GT before running the bench.
+Usage: python3 make_harder_questions.py
 """
 import json
-import sys
+import os
 
-HARDER = {
-    "schema": "v2-harder-questions/1",
-    "note": "Harder set targeting v2 failure modes. GT must be filled in hidden/ before scoring.",
-    "video": "benchmark.mp4",
-    "questions": [
-        # ---------------- transition-timing (harder: precise start second) ----------------
-        {
-            "id": "H001",
-            "category": "transition-timing",
-            "type": "timestamp_s",
-            "question": "At what exact second does the dissolve from the beach shot to the chateau shot BEGIN?",
-        },
-        {
-            "id": "H002",
-            "category": "transition-timing",
-            "type": "timestamp_s",
-            "question": "At what exact second does the wipe from the canal shot to the cafe shot BEGIN?",
-        },
-        {
-            "id": "H003",
-            "category": "transition-timing",
-            "type": "timestamp_s",
-            "question": "At what exact second does the cut from the MEANWHILE card to the desk shot occur?",
-        },
-        {
-            "id": "H004",
-            "category": "transition-timing",
-            "type": "timestamp_s",
-            "question": "At what exact second does the black-and-white desk shot FIRST appear?",
-        },
-        {
-            "id": "H005",
-            "category": "transition-timing",
-            "type": "timestamp_s",
-            "question": "At what exact second does the cafe shot re-enter (the mirrored return) BEGIN?",
-        },
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-        # ---------------- transition-duration (harder: precise length) ----------------
-        {
-            "id": "H006",
-            "category": "transition-duration",
-            "type": "number_s",
-            "question": "How many seconds long is the dissolve between the flowers shot and the beach shot?",
-        },
-        {
-            "id": "H007",
-            "category": "transition-duration",
-            "type": "number_s",
-            "question": "How many seconds long is the wipe between the chateau shot and the canal shot?",
-        },
-        {
-            "id": "H008",
-            "category": "transition-duration",
-            "type": "number_s",
-            "question": "How many seconds long is the dissolve around 44 seconds (desk shot to mirrored cafe)?",
-        },
-        {
-            "id": "H009",
-            "category": "transition-duration",
-            "type": "number_s",
-            "question": "How many seconds long is the transition at ~53 seconds (cafe to black-and-white desk)?",
-        },
-        {
-            "id": "H010",
-            "category": "transition-duration",
-            "type": "number_s",
-            "question": "How many seconds long is the fade/cut transition into the opening title card?",
-        },
+# Each entry: (id, category, type, question, gt)
+# gt dict keys: mode + mode-specific fields (same schema as score.py)
+QUESTIONS = [
+    # ---------------- transition-timing (precise start second) ----------------
+    ("H001", "transition-timing", "timestamp_s",
+     "At what second does the dissolve from the flowers shot to the beach shot BEGIN?",
+     {"mode": "timestamp_s", "answer": 11.0, "tol": 0.35}),
+    ("H002", "transition-timing", "timestamp_s",
+     "At what second does the wipe from the chateau to the canal BEGIN?",
+     {"mode": "timestamp_s", "answer": 26.0, "tol": 0.35}),
+    ("H003", "transition-timing", "timestamp_s",
+     "At what second does the dip-to-black transition from the canal to the cafe BEGIN?",
+     {"mode": "timestamp_s", "answer": 31.0, "tol": 0.35}),
+    ("H004", "transition-timing", "timestamp_s",
+     "At what second does the transition from the MEANWHILE card to the desk shot BEGIN?",
+     {"mode": "timestamp_s", "answer": 38.07, "tol": 0.35}),
+    ("H005", "transition-timing", "timestamp_s",
+     "At what second does the wipe from the mirrored cafe to the black-and-white desk BEGIN?",
+     {"mode": "timestamp_s", "answer": 53.0, "tol": 0.35}),
 
-        # ---------------- bad-edit-detection (harder: editor-level continuity errors) ----------------
-        {
-            "id": "H011",
-            "category": "bad-edit-detection",
-            "type": "text",
-            "question": "Around 36 seconds, right before the MEANWHILE card, there is an editing mistake. Describe it precisely.",
-        },
-        {
-            "id": "H012",
-            "category": "bad-edit-detection",
-            "type": "text",
-            "question": "The cafe shot returns at ~49.3 seconds. From an editor's point of view, what is wrong with that re-entry?",
-        },
-        {
-            "id": "H013",
-            "category": "bad-edit-detection",
-            "type": "text",
-            "question": "In the black-and-white desk shot, is there a continuity error with the objects on the desk between the first and second time we see it? Describe.",
-        },
-        {
-            "id": "H014",
-            "category": "bad-edit-detection",
-            "type": "text",
-            "question": "Does any shot in the video have a jump-cut within the same continuous action (subject jumps position mid-shot)? If so, at what second?",
-        },
-        {
-            "id": "H015",
-            "category": "bad-edit-detection",
-            "type": "text",
-            "question": "Is there a frame where audio and video are visibly out of sync (lip sync or action mismatch)? If yes, when?",
-        },
+    # ---------------- transition-identification (harder kinds) ----------------
+    ("H006", "transition-identification", "closed",
+     "Around 21 seconds, what type of transition connects the sea-view vista to the chateau?",
+     {"mode": "accepted", "accepted": ["zoom", "scale", "scale-blend", "zoom-blend", "zoom in", "zoom transition"]}),
+    ("H007", "transition-identification", "closed",
+     "Around 31 seconds, what type of transition connects the canal shot to the cafe shot?",
+     {"mode": "accepted", "accepted": ["dip to black", "dip-to-black", "dip", "fade through black", "fade to black"]}),
+    ("H008", "transition-identification", "closed",
+     "What type of transition carries the MEANWHILE card into the desk shot (the incoming image moves over the card)?",
+     {"mode": "accepted", "accepted": ["slide", "slide up", "push", "push up"]}),
+    ("H009", "transition-identification", "closed",
+     "Around 16 seconds, what type of transition connects the beach shot to the sea-view vista?",
+     {"mode": "accepted", "accepted": ["cut", "hard cut", "straight cut", "jump cut"]}),
+    ("H010", "transition-identification", "closed",
+     "Around 44 seconds, what type of transition connects the overhead desk shot to the flat-lay desk shot?",
+     {"mode": "accepted", "accepted": ["dissolve", "crossfade", "cross dissolve", "cross-fade"]}),
 
-        # ---------------- object-count (harder: precise counts, occluded objects) ----------------
-        {
-            "id": "H016",
-            "category": "object-count",
-            "type": "integer",
-            "question": "How many espresso cups are on the cafe table in the FIRST cafe shot?",
-        },
-        {
-            "id": "H017",
-            "category": "object-count",
-            "type": "integer",
-            "question": "How many white boats are moored in the canal shot?",
-        },
-        {
-            "id": "H018",
-            "category": "object-count",
-            "type": "integer",
-            "question": "How many people are visible in the chateau shot?",
-        },
-        {
-            "id": "H019",
-            "category": "object-count",
-            "type": "integer",
-            "question": "How many distinct books are on the desk in the black-and-white shot?",
-        },
-        {
-            "id": "H020",
-            "category": "object-count",
-            "type": "integer",
-            "question": "How many times does the black dog/puppy appear across the entire video?",
-        },
+    # ---------------- transition-duration (precise length) ----------------
+    ("H011", "transition-duration", "number_s",
+     "How many seconds long is the dissolve between the flowers and beach shots?",
+     {"mode": "number_s", "answer": 0.5, "tol": 0.1}),
+    ("H012", "transition-duration", "number_s",
+     "How many seconds long is the wipe from the chateau to the canal?",
+     {"mode": "number_s", "answer": 0.33, "tol": 0.1}),
+    ("H013", "transition-duration", "number_s",
+     "How many seconds long is the zoom transition from the vista to the chateau?",
+     {"mode": "number_s", "answer": 0.2, "tol": 0.1}),
+    ("H014", "transition-duration", "number_s",
+     "How many seconds long is the dip-to-black from the canal to the cafe?",
+     {"mode": "number_s", "answer": 0.2, "tol": 0.1}),
+    ("H015", "transition-duration", "number_s",
+     "How many seconds long is the wipe from the mirrored cafe to the black-and-white desk?",
+     {"mode": "number_s", "answer": 0.27, "tol": 0.1}),
 
-        # ---------------- not-observable (traps - model should refuse, not guess) ----------------
-        {
-            "id": "H021",
-            "category": "not-observable",
-            "type": "text",
-            "question": "In the shot with the vintage camera and open grid notebook, what is written in the handwritten notes?",
-        },
-        {
-            "id": "H022",
-            "category": "not-observable",
-            "type": "text",
-            "question": "What is the brand of the white car visible through the cafe window in the background?",
-        },
-        {
-            "id": "H023",
-            "category": "not-observable",
-            "type": "text",
-            "question": "What is the exact time shown on the wall clock in the cafe shot?",
-        },
-        {
-            "id": "H024",
-            "category": "not-observable",
-            "type": "text",
-            "question": "What is written on the napkin under the espresso cups in the first cafe shot?",
-        },
-        {
-            "id": "H025",
-            "category": "not-observable",
-            "type": "text",
-            "question": "What color are the dog's eyes in the shot where it appears?",
-        },
+    # ---------------- transition-direction ----------------
+    ("H016", "transition-direction", "closed",
+     "What is the DIRECTION of the wipe at ~26 seconds (chateau to canal)?",
+     {"mode": "accepted", "accepted": ["left to right", "left-to-right", "l->r", "left right", "from left", "leftwards", "left to right direction"]}),
+    ("H017", "transition-direction", "closed",
+     "What is the DIRECTION of the wipe at ~53 seconds (mirrored cafe to black-and-white desk)?",
+     {"mode": "accepted", "accepted": ["right to left", "right-to-left", "r->l", "from right", "rightwards"]}),
+    ("H018", "transition-direction", "closed",
+     "What is the DIRECTION of the slide transition at ~38 seconds (MEANWHILE card to desk shot)?",
+     {"mode": "accepted", "accepted": ["up", "upward", "upwards", "slides up", "bottom to top"]}),
 
-        # ---------------- shot-count (harder: precise segment count) ----------------
-        {
-            "id": "H026",
-            "category": "shot-count",
-            "type": "integer",
-            "question": "Counting each scene, each full-screen text card, and each flash insert as one segment, how many total segments does this edit contain?",
-        },
-        {
-            "id": "H027",
-            "category": "shot-count",
-            "type": "integer",
-            "question": "How many full-screen text cards (title, interlude, MEANWHILE, end cards) appear?",
-        },
-        {
-            "id": "H028",
-            "category": "shot-count",
-            "type": "integer",
-            "question": "How many distinct shooting locations are shown (e.g. beach, chateau, canal, cafe, desk)?",
-        },
-        {
-            "id": "H029",
-            "category": "shot-count",
-            "type": "integer",
-            "question": "How many times does the cafe shot appear (counting both first and re-entry)?",
-        },
-        {
-            "id": "H030",
-            "category": "shot-count",
-            "type": "integer",
-            "question": "How many black-and-white shots are in the video?",
-        },
+    # ---------------- bad-edit-detection ----------------
+    ("H019", "bad-edit-detection", "text",
+     "A stray image flashes full-screen for 2 frames right before the MEANWHILE card at ~36 seconds. What does it show?",
+     {"mode": "tiered",
+      "full_substrings": ["onion", "red onion", "vegetable", "chopped onion"],
+      "half_substrings": ["food", "cooking", "cutting board", "kitchen"]}),
+    ("H020", "bad-edit-detection", "text",
+     "During the dissolve around 49.5 seconds (overhead desk to mirrored cafe), a single image flashes for 2 frames. What is it?",
+     {"mode": "tiered",
+      "full_substrings": ["open book", "book"],
+      "half_substrings": ["book", "reading", "page"]}),
+    ("H021", "bad-edit-detection", "text",
+     "The dissolve between the flowers shot and the beach shot is unusual from an editor's point of view. What is wrong with it?",
+     {"mode": "tiered",
+      "full_substrings": ["too long", "overlong", "too slow", "long dissolve", "slow dissolve", "excessively long"],
+      "half_substrings": ["long", "slow", "duration", "length"]}),
 
-        # ---------------- ocr-title (harder: exact text) ----------------
-        {
-            "id": "H031",
-            "category": "ocr-title",
-            "type": "text",
-            "question": "What does the main text of the opening title card say, exactly?",
-        },
-        {
-            "id": "H032",
-            "category": "ocr-title",
-            "type": "text",
-            "question": "What is the smaller subtitle line under the opening title, exactly?",
-        },
-        {
-            "id": "H033",
-            "category": "ocr-title",
-            "type": "text",
-            "question": "What text does the lower-third overlay show during the desk shot with the REC indicator, exactly?",
-        },
-        {
-            "id": "H034",
-            "category": "ocr-title",
-            "type": "text",
-            "question": "What word is printed on the white book standing on the desk in the black-and-white shot?",
-        },
-        {
-            "id": "H035",
-            "category": "ocr-title",
-            "type": "text",
-            "question": "Which number is shown on the black desk calendar in the black-and-white shot?",
-        },
-    ],
-}
+    # ---------------- object-count (grounded in assets) ----------------
+    ("H022", "object-count", "integer",
+     "How many cups are on the cafe table in the first cafe shot?",
+     {"mode": "tol", "answer": 2, "tol": 0}),
+    ("H023", "object-count", "integer",
+     "How many times does the black dog appear in the video (counting both appearances)?",
+     {"mode": "tol", "answer": 2, "tol": 0}),
+    ("H024", "object-count", "integer",
+     "How many books are standing on the desk in the black-and-white shot?",
+     {"mode": "tol", "answer": 2, "tol": 0}),
+    ("H025", "object-count", "integer",
+     "How many full-screen TEXT cards (title, interlude, end) appear in the video?",
+     {"mode": "tol", "answer": 3, "tol": 0}),
+
+    # ---------------- not-observable (should refuse) ----------------
+    ("H026", "not-observable", "text",
+     "What is written in the handwritten notes of the open notebook in the overhead desk shot?",
+     {"mode": "accepted",
+      "accepted": ["cannot determine", "not visible", "cannot tell", "unable to determine",
+                   "illegible", "unreadable", "not observable", "cannot read", "too small", "too blurry", "blurry"]}),
+    ("H027", "not-observable", "text",
+     "What text is visible on the smartphone screen lying on the cafe table?",
+     {"mode": "accepted",
+      "accepted": ["none", "no text", "screen is off", "blank", "off", "cannot determine", "not visible",
+                   "no text visible", "screen off", "black screen"]}),
+    ("H028", "not-observable", "text",
+     "What is the brand of the white car visible through the cafe window in the background?",
+     {"mode": "accepted",
+      "accepted": ["cannot determine", "not visible", "cannot tell", "unable to determine",
+                   "not observable", "cannot read", "unknown"]}),
+    ("H029", "not-observable", "text",
+     "What are the first three words of the blurred text on the open-book flash frame at ~49.5 seconds?",
+     {"mode": "accepted",
+      "accepted": ["cannot determine", "not visible", "cannot tell", "unable to determine",
+                   "illegible", "unreadable", "not observable", "cannot read", "too blurry", "blurry"]}),
+
+    # ---------------- shot-count ----------------
+    ("H030", "shot-count", "integer",
+     "Counting each scene and each full-screen text card as one segment (ignore the brief flash inserts), how many segments does this edit contain?",
+     {"mode": "tol", "answer": 15, "tol": 0}),
+    ("H031", "shot-count", "integer",
+     "How many times does the cafe table shot appear in the video (counting both the original and the mirrored return)?",
+     {"mode": "tol", "answer": 2, "tol": 0}),
+
+    # ---------------- ocr-title / ocr-overlay ----------------
+    ("H032", "ocr-title", "text",
+     "What does the main text of the opening title card say?",
+     {"mode": "accepted", "accepted": ["WEEKEND CUT"]}),
+    ("H033", "ocr-title", "text",
+     "What is the smaller subtitle line under the opening title?",
+     {"mode": "accepted", "accepted": ["sat — sun", "sat - sun", "sat–sun"]}),
+    ("H034", "ocr-overlay", "text",
+     "What does the lower-third overlay show during the desk shot with the REC indicator?",
+     {"mode": "accepted", "accepted": ["the cut — 23:10", "the cut - 23:10", "the cut–23:10", "the cut 23:10"]}),
+    ("H035", "ocr-overlay", "text",
+     "What is the subtitle line under the word MEANWHILE on the mid-video card?",
+     {"mode": "accepted", "accepted": ["back at the desk"]}),
+    ("H036", "ocr-prop", "text",
+     "What word is printed on the book standing on the desk in the black-and-white shot?",
+     {"mode": "accepted", "accepted": ["Symbol", "symbol"]}),
+    ("H037", "ocr-prop", "text",
+     "What number is shown on the black desk calendar in the black-and-white shot?",
+     {"mode": "accepted", "accepted": ["18"]}),
+    ("H038", "ocr-overlay", "text",
+     "Which three letters appear next to the blinking red dot in the top-left corner of the desk shot?",
+     {"mode": "accepted", "accepted": ["REC", "rec"]}),
+
+    # ---------------- spatial-order / long-range ----------------
+    ("H039", "spatial-order", "closed",
+     "Which comes FIRST in the video: the chateau shot or the canal shot?",
+     {"mode": "accepted", "accepted": ["chateau", "castle", "chateau shot"]}),
+    ("H040", "spatial-order", "closed",
+     "Which comes FIRST: the flat-lay overhead desk shot or the mirrored cafe shot?",
+     {"mode": "accepted", "accepted": ["flat-lay", "flat lay", "flatlay", "overhead desk", "overhead", "flat-lay desk"]}),
+    ("H041", "long-range-reappearance", "text",
+     "Which subject appears near both the BEGINNING and the END of the video?",
+     {"mode": "accepted", "accepted": ["dog", "puppy", "black dog", "black lab", "labrador", "dog/puppy"]}),
+
+    # ---------------- motion-direction ----------------
+    ("H042", "motion-direction", "closed",
+     "In the canal shot (~26-31 s), which direction does the camera PAN?",
+     {"mode": "accepted", "accepted": ["left", "leftwards", "leftward", "to the left", "pan left", "pans left"]}),
+    ("H043", "motion-direction", "closed",
+     "In the overhead desk shot with the REC indicator (~38-44 s), which direction does the camera PAN?",
+     {"mode": "accepted", "accepted": ["right", "rightwards", "rightward", "to the right", "pan right", "pans right"]}),
+
+    # ---------------- continuity-mismatch ----------------
+    ("H044", "continuity-mismatch", "text",
+     "The cafe table shot appears twice. What is DIFFERENT about the second appearance compared to the first?",
+     {"mode": "tiered",
+      "full_substrings": ["mirror", "flipped", "flip", "reversed", "horizontally"],
+      "half_substrings": ["mirrored", "flipped", "opposite"]}),
+]
 
 
 def main():
-    out_path = os.path.join(
-        os.path.dirname(os.path.abspath(__file__)), "..", "questions_harder.json"
-    )
-    out_path = os.path.abspath(out_path)
-    with open(out_path, "w") as fh:
-        json.dump(HARDER, fh, indent=1, ensure_ascii=False)
-    print("wrote %d harder questions to %s" % (len(HARDER["questions"]), out_path))
+    qdoc = {
+        "schema": "v2-harder-questions/1",
+        "note": "Harder set grounded in src/timeline.py. Additive to the 49 v2 questions.",
+        "video": "benchmark.mp4",
+        "questions": [
+            {"id": qid, "category": cat, "type": typ, "question": q}
+            for (qid, cat, typ, q, _gt) in QUESTIONS
+        ],
+    }
+    rules = {
+        "rules": {
+            qid: {"category": cat, "type": typ, "flags": {}, "gt": gt}
+            for (qid, cat, typ, _q, gt) in QUESTIONS
+        }
+    }
+    qpath = os.path.join(ROOT, "questions_harder.json")
+    gpath = os.path.join(ROOT, "hidden", "gt_rules_harder.json")
+    os.makedirs(os.path.dirname(gpath), exist_ok=True)
+    with open(qpath, "w") as fh:
+        json.dump(qdoc, fh, indent=1, ensure_ascii=False)
+    with open(gpath, "w") as fh:
+        json.dump(rules, fh, indent=1, ensure_ascii=False)
+    print("wrote %d questions -> %s" % (len(QUESTIONS), qpath))
+    print("wrote GT rules      -> %s" % gpath)
 
 
 if __name__ == "__main__":
-    import os
     main()

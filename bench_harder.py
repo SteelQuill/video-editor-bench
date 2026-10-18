@@ -28,12 +28,12 @@ import time
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from tl_client import TLClient, load_answers, save_answers  # noqa: E402
 
-VIDEO = os.environ.get("VIDEO", "/home/codespace/v2/benchmark.mp4")
-QFILE = os.environ.get("QFILE", os.path.join(
-    os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
-    "questions_harder.json"))
+REPO = os.path.dirname(os.path.abspath(__file__))
+V2 = os.path.join(REPO, "benchmark", "v2")
+VIDEO = os.environ.get("VIDEO", os.path.join(V2, "benchmark.mp4"))
+QFILE = os.environ.get("QFILE", os.path.join(V2, "questions_harder.json"))
 OUT = os.environ.get("OUT") or os.path.join(
-    os.path.dirname(os.path.abspath(__file__)), "results_harder_twelvelabs.json")
+    V2, "results", "results_harder_twelvelabs.json")
 TL_MODEL = os.environ.get("TL_MODEL", "pegasus1.5")
 N_RETRIES = int(os.environ.get("N_RETRIES", "3"))  # extra hinted passes after pass-1
 WRAP = "Watch this video and answer the question.\n\n"
@@ -46,7 +46,15 @@ RETRY_SUFFIXES = [
 ]
 
 
+def doc_asset_id(doc):
+    """Fetch asset_id from a resumed results doc (top-level or config)."""
+    if isinstance(doc, dict):
+        return doc.get("asset_id") or doc.get("config", {}).get("asset_id")
+    return None
+
+
 def main():
+    os.makedirs(os.path.dirname(OUT), exist_ok=True)
     client = TLClient()
     with open(QFILE) as fh:
         qs = json.load(fh)["questions"]
@@ -63,7 +71,7 @@ def main():
         answers = prev.get("answers", answers)
 
     # asset setup (reuse via TL_ASSET_ID if set)
-    asset_id = os.environ.get("TL_ASSET_ID") or prev.get("config", {}).get("asset_id")
+    asset_id = os.environ.get("TL_ASSET_ID") or prev.get("asset_id") or doc_asset_id(prev)
     if not asset_id:
         print("UPLOADING %s" % VIDEO, flush=True)
         t0 = time.time()
