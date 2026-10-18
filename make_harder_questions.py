@@ -14,7 +14,8 @@ Usage: python3 make_harder_questions.py
 import json
 import os
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+REPO = os.path.dirname(os.path.abspath(__file__))
+ROOT = os.path.join(REPO, "benchmark", "v2")
 
 # Each entry: (id, category, type, question, gt)
 # gt dict keys: mode + mode-specific fields (same schema as score.py)
