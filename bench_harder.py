@@ -36,6 +36,9 @@ OUT = os.environ.get("OUT") or os.path.join(
     V2, "results", "results_harder_twelvelabs.json")
 TL_MODEL = os.environ.get("TL_MODEL", "pegasus1.5")
 N_RETRIES = int(os.environ.get("N_RETRIES", "3"))  # extra hinted passes after pass-1
+PASS_OFFSET = int(os.environ.get("PASS_OFFSET", "0"))  # start at RETRY_SUFFIXES[pass+OFFSET]
+FORCE = os.environ.get("FORCE") == "1"  # re-ask even if answered (phase-2 retry)
+ONLY_QIDS = os.environ.get("ONLY_QIDS")  # comma list or json file of qids
 WRAP = "Watch this video and answer the question.\n\n"
 
 RETRY_SUFFIXES = [
@@ -53,12 +56,28 @@ def doc_asset_id(doc):
     return None
 
 
+def load_only_qids():
+    if not ONLY_QIDS:
+        return None
+    raw = ONLY_QIDS.strip()
+    if raw.startswith("[") or os.path.exists(raw):
+        import json as _json
+        data = _json.load(open(raw)) if os.path.exists(raw) else _json.loads(raw)
+        return set(data)
+    return {s.strip() for s in raw.split(",") if s.strip()}
+
+
 def main():
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     client = TLClient()
     with open(QFILE) as fh:
         qs = json.load(fh)["questions"]
-    print("LOADED %d harder questions" % len(qs), flush=True)
+    only = load_only_qids()
+    if only:
+        qs = [q for q in qs if q["id"] in only]
+        print("FILTERED to %d questions" % len(qs), flush=True)
+    else:
+        print("LOADED %d harder questions" % len(qs), flush=True)
 
     answers = load_answers(OUT)
     per_pass = {}
@@ -83,15 +102,16 @@ def main():
 
     for i, q in enumerate(qs, 1):
         qid = q["id"]
-        if answers.get(qid):
+        if answers.get(qid) and not FORCE:
             continue
 
         base_prompt = WRAP + q["question"]
         pass_answers = []
-        final_ans = ""
+        final_ans = answers.get(qid, "") if FORCE else ""
 
         for p in range(N_RETRIES + 1):
-            suffix = RETRY_SUFFIXES[p] if p < len(RETRY_SUFFIXES) else RETRY_SUFFIXES[-1]
+            si = min(p + PASS_OFFSET, len(RETRY_SUFFIXES) - 1)
+            suffix = RETRY_SUFFIXES[si]
             prompt = base_prompt + suffix
             print("ENTER %s pass-%d" % (qid, p + 1), flush=True)
             try:
@@ -99,7 +119,8 @@ def main():
                 ans = client.analyze(asset_id, prompt)
                 wall = time.time() - t
                 pass_answers.append(ans)
-                final_ans = ans  # last non-empty wins
+                if ans:  # last non-empty wins; empty retry never clobbers
+                    final_ans = ans
                 print("Q%02d %s p%d %.1fs -> %s" % (
                     i, qid, p + 1, wall,
                     ans.replace("\n", " ")[:160]), flush=True)
@@ -108,8 +129,6 @@ def main():
                 msg = str(e)[:300]
                 errors.append("%s p%d: %s" % (qid, p + 1, msg))
                 print("ERROR %s p%d: %s" % (qid, p + 1, msg), flush=True)
-                if not pass_answers:
-                    final_ans = ""
 
         answers[qid] = final_ans
         per_pass[qid] = pass_answers
