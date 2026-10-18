@@ -1,0 +1,305 @@
+{
+ "schema": "v2-questions/1",
+ "note": "Public. Contains no answers; scoring rules are held privately by the benchmark generator.",
+ "video": "benchmark.mp4",
+ "questions": [
+  {
+   "id": "Q001",
+   "category": "shot-count",
+   "type": "integer",
+   "question": "Counting each scene and each full-screen text card as one segment (ignore the brief flash inserts), how many segments does this edit contain?"
+  },
+  {
+   "id": "Q002",
+   "category": "shot-count",
+   "type": "integer",
+   "question": "How many full-screen TEXT cards (title/interlude/end cards) appear in the video?"
+  },
+  {
+   "id": "Q003",
+   "category": "transition-identification",
+   "type": "closed",
+   "question": "Around 11.0 seconds, when the flower shot changes to the beach shot, which transition is used?"
+  },
+  {
+   "id": "Q004",
+   "category": "transition-identification",
+   "type": "closed",
+   "question": "Around 21.0 seconds, when the sea view changes to the chateau, which transition is used?"
+  },
+  {
+   "id": "Q005",
+   "category": "transition-identification",
+   "type": "closed",
+   "question": "Around 26.0 seconds, when the chateau changes to the canal, which transition is used?"
+  },
+  {
+   "id": "Q006",
+   "category": "transition-identification",
+   "type": "closed",
+   "question": "Around 31.0 seconds, when the canal changes to the cafe, which transition is used?"
+  },
+  {
+   "id": "Q007",
+   "category": "transition-identification",
+   "type": "closed",
+   "question": "Around 38.1 seconds, when the MEANWHILE card changes to the desk shot, which transition is used?"
+  },
+  {
+   "id": "Q008",
+   "category": "transition-identification",
+   "type": "closed",
+   "question": "Around 53.0 seconds, when the cafe shot changes to the black-and-white desk, which transition is used?"
+  },
+  {
+   "id": "Q009",
+   "category": "transition-direction",
+   "type": "closed",
+   "question": "What is the DIRECTION of the wipe at ~26.0 seconds (chateau to canal)?"
+  },
+  {
+   "id": "Q010",
+   "category": "transition-direction",
+   "type": "closed",
+   "question": "What is the DIRECTION of the wipe at ~53.0 seconds (cafe to black-and-white desk)?"
+  },
+  {
+   "id": "Q011",
+   "category": "transition-timing",
+   "type": "timestamp_s",
+   "question": "At what time (in seconds) does the dissolve from the flowers shot to the beach shot BEGIN?"
+  },
+  {
+   "id": "Q012",
+   "category": "transition-timing",
+   "type": "timestamp_s",
+   "question": "At what time (in seconds) does the FIRST wipe in the video begin?"
+  },
+  {
+   "id": "Q013",
+   "category": "transition-timing",
+   "type": "timestamp_s",
+   "question": "At what time (in seconds) does the cafe shot re-enter (the mirrored return of the cafe scene) at roughly 49 seconds?"
+  },
+  {
+   "id": "Q014",
+   "category": "transition-timing",
+   "type": "timestamp_s",
+   "question": "At what time (in seconds) does the dog/puppy appear for the second time, near the end?"
+  },
+  {
+   "id": "Q015",
+   "category": "transition-duration",
+   "type": "number_s",
+   "question": "How long (in seconds) is the dissolve between the flowers and beach shots?"
+  },
+  {
+   "id": "Q016",
+   "category": "transition-duration",
+   "type": "number_s",
+   "question": "How long (in seconds) is the dissolve around 44.0 seconds (desk shot to mirrored cafe)?"
+  },
+  {
+   "id": "Q017",
+   "category": "OCR-title",
+   "type": "text",
+   "question": "What does the main text of the opening title card say?"
+  },
+  {
+   "id": "Q018",
+   "category": "OCR-title",
+   "type": "text",
+   "question": "What is the smaller subtitle line under the opening title?"
+  },
+  {
+   "id": "Q019",
+   "category": "OCR-overlay",
+   "type": "text",
+   "question": "What text does the lower-third overlay show during the desk shot with the REC indicator?"
+  },
+  {
+   "id": "Q020",
+   "category": "OCR-overlay",
+   "type": "text",
+   "question": "Which three letters appear next to the blinking red dot in the top-left corner?"
+  },
+  {
+   "id": "Q021",
+   "category": "OCR-overlay",
+   "type": "text",
+   "question": "What is the subtitle line under the word MEANWHILE on the mid-video card?"
+  },
+  {
+   "id": "Q022",
+   "category": "OCR-overlay",
+   "type": "text",
+   "question": "What is the subtitle line under FIN on the end card?"
+  },
+  {
+   "id": "Q023",
+   "category": "OCR-prop",
+   "type": "text",
+   "question": "Which number is shown on the black desk calendar in the black-and-white shot?"
+  },
+  {
+   "id": "Q024",
+   "category": "OCR-prop",
+   "type": "text",
+   "question": "What word is printed on the white book standing on the desk in the black-and-white shot?"
+  },
+  {
+   "id": "Q025",
+   "category": "object-existence",
+   "type": "boolean",
+   "question": "Does a black dog or puppy appear anywhere in the video?"
+  },
+  {
+   "id": "Q026",
+   "category": "object-existence",
+   "type": "boolean",
+   "question": "Does a chopped red onion / cooking vegetables ever appear full-screen in the video? (answer yes or no)"
+  },
+  {
+   "id": "Q027",
+   "category": "object-existence",
+   "type": "boolean",
+   "question": "Does the video ever show a glass teapot?"
+  },
+  {
+   "id": "Q028",
+   "category": "object-count",
+   "type": "integer",
+   "question": "How many espresso cups are on the cafe table in the FIRST cafe shot?"
+  },
+  {
+   "id": "Q029",
+   "category": "object-count",
+   "type": "integer",
+   "question": "How many white boats are moored in the canal shot?"
+  },
+  {
+   "id": "Q030",
+   "category": "long-range-reappearance",
+   "type": "text",
+   "question": "Which subject appears near both the BEGINNING and the END of the video?"
+  },
+  {
+   "id": "Q031",
+   "category": "long-range-reappearance",
+   "type": "number_s",
+   "question": "Approximately how many seconds pass between the dog's first appearance and its re-appearance?"
+  },
+  {
+   "id": "Q032",
+   "category": "spatial-order",
+   "type": "closed",
+   "question": "Which comes FIRST in the video: the chateau shot or the canal shot?"
+  },
+  {
+   "id": "Q033",
+   "category": "spatial-order",
+   "type": "closed",
+   "question": "Which comes FIRST: the re-entering (second) cafe shot, or the black-and-white desk shot?"
+  },
+  {
+   "id": "Q034",
+   "category": "motion-direction",
+   "type": "closed",
+   "question": "In the sea-and-forest vista shot (~16-21 s), which direction does the camera PAN?"
+  },
+  {
+   "id": "Q035",
+   "category": "motion-direction",
+   "type": "closed",
+   "question": "In the canal shot (~26-31 s), which direction does the camera PAN?"
+  },
+  {
+   "id": "Q036",
+   "category": "continuity-mismatch",
+   "type": "text",
+   "question": "The cafe table shot appears twice. What is DIFFERENT about the second appearance compared to the first?"
+  },
+  {
+   "id": "Q037",
+   "category": "continuity-mismatch",
+   "type": "closed",
+   "question": "In the SECOND (re-entering) cafe shot, are the cups to the LEFT or the RIGHT of the smartphone?"
+  },
+  {
+   "id": "Q038",
+   "category": "ambiguity",
+   "type": "text",
+   "question": "During the transition around 49.3 seconds, a single subject flashes for 2 frames. Did you see an open BOOK? Answer honestly with your confidence level."
+  },
+  {
+   "id": "Q039",
+   "category": "ambiguity",
+   "type": "text",
+   "question": "In the FIRST cafe shot, is any text visible on the smartphone screen lying on the table?"
+  },
+  {
+   "id": "Q040",
+   "category": "not-observable",
+   "type": "text",
+   "question": "In the shot with the vintage camera and open grid notebook (desk with laptop showing photos), what is written in the handwritten notes?"
+  },
+  {
+   "id": "Q041",
+   "category": "not-observable",
+   "type": "text",
+   "question": "What is the BRAND of the white car visible through the cafe window in the background?"
+  },
+  {
+   "id": "Q042",
+   "category": "bad-edit-detection",
+   "type": "text",
+   "question": "There is an editing MISTAKE at roughly 36.0 seconds, right before the MEANWHILE card. What is it?"
+  },
+  {
+   "id": "Q043",
+   "category": "bad-edit-detection",
+   "type": "text",
+   "question": "The cafe shot returns at ~49.3 s. From an editor's point of view, what is WRONG with that re-entry?"
+  },
+  {
+   "id": "Q044",
+   "category": "edit-proposal",
+   "type": "structured",
+   "question": "You are the editor of this cut. Propose EXACTLY 3 changes that would improve it. For EACH change give: (1) timestamp in seconds, (2) the problem, (3) what is wrong / why it fails, (4) the specific change you would make, (5) why the change helps. Format each change clearly (e.g. numbered 1/2/3)."
+  },
+  {
+   "id": "Q045",
+   "category": "narrative-structure",
+   "type": "text",
+   "question": "What NARRATIVE PURPOSE does the black 'MEANWHILE' card serve in the edit?"
+  },
+  {
+   "id": "Q046",
+   "category": "narrative-structure",
+   "type": "text",
+   "question": "In one sentence, what is this video's overall story / structure?"
+  },
+  {
+   "id": "Q047",
+   "category": "color-grade",
+   "type": "rubric_0_4",
+   "question": "Rate the overall EDITING QUALITY of this cut from 0 to 4 and justify briefly (mention specific moments if you can)."
+  },
+  {
+   "id": "Q048",
+   "category": "audio",
+   "type": "na",
+   "question": "What sound effects accompany the transitions in this video?",
+   "na": true,
+   "na_note": "models receive frame samples only — audio cannot be evaluated"
+  },
+  {
+   "id": "Q049",
+   "category": "audio",
+   "type": "na",
+   "question": "Does the video contain background music? Describe it.",
+   "na": true,
+   "na_note": "models receive frame samples only — audio cannot be evaluated"
+  }
+ ]
+}
