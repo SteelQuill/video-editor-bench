@@ -1,0 +1,91 @@
+LOADED 44 harder questions
+ENTER H001 pass-1
+Q01 H001 p1 28.7s -> The dissolve from the flowers shot to the beach shot begins at 00:11.
+ENTER H002 pass-1
+Q02 H002 p1 26.4s -> 26.0
+ENTER H003 pass-1
+Q03 H003 p1 20.9s -> The dip-to-black transition from the canal to the cafe begins at the 31-second mark.
+ENTER H004 pass-1
+Q04 H004 p1 33.7s -> 38.0
+ENTER H005 pass-1
+Q05 H005 p1 25.2s -> 53 seconds
+ENTER H006 pass-1
+Q06 H006 p1 33.0s -> A dissolve transition connects the sea-view vista to the chateau.
+ENTER H007 pass-1
+Q07 H007 p1 23.4s -> The transition connecting the canal shot to the cafe shot around 31 seconds is a simple cut.
+ENTER H008 pass-1
+Q08 H008 p1 15.3s -> The transition that carries the MEANWHILE card into the desk shot is a slide transition, where the incoming image moves over the card from the left side.
+ENTER H009 pass-1
+Q09 H009 p1 12.8s -> Around 16 seconds, the transition connecting the beach shot to the sea-view vista is a cross-dissolve.
+ENTER H010 pass-1
+Q10 H010 p1 18.6s -> Around 44 seconds, the transition connecting the overhead desk shot to the flat-lay desk shot is a dissolve.
+ENTER H011 pass-1
+Q11 H011 p1 11.7s -> 1 second
+ENTER H012 pass-1
+Q12 H012 p1 10.4s -> The wipe from the chateau to the canal is 1 second long.
+ENTER H013 pass-1
+Q13 H013 p1 16.9s -> The zoom transition from the vista to the chateau is 5 seconds long, from [00:16] to [00:21].
+ENTER H014 pass-1
+Q14 H014 p1 9.0s -> The dip-to-black transition from the canal to the cafe lasts for 1 second.
+ENTER H015 pass-1
+Q15 H015 p1 7.8s -> The wipe transition from the mirrored cafe to the black-and-white desk lasts for approximately 4 seconds, from 00:50 to 00:54.
+ENTER H016 pass-1
+Q16 H016 p1 11.6s -> The wipe transition at approximately 26 seconds moves from left to right, transitioning from the chateau scene to the canal scene.
+ENTER H017 pass-1
+Q17 H017 p1 9.5s -> The wipe at approximately 53 seconds moves from left to right.
+ENTER H018 pass-1
+Q18 H018 p1 7.3s -> The slide transition at ~38 seconds moves from right to left.
+ENTER H019 pass-1
+Q19 H019 p1 11.1s -> The stray image that flashes full-screen for 2 frames right before the MEANWHILE card at approximately 36 seconds shows a close-up of a black Labrador puppy sit
+ENTER H020 pass-1
+Q20 H020 p1 8.0s -> The image that flashes for 2 frames during the dissolve around 49.5 seconds is the black dog.
+ENTER H021 pass-1
+Q21 H021 p1 10.4s -> The dissolve between the flowers shot and the beach shot is unusual because it transitions from a close-up of flowers to a wide shot of a beach, which is a sign
+ENTER H022 pass-1
+Q22 H022 p1 10.3s -> There are two cups on the cafe table in the first cafe shot.
+ENTER H023 pass-1
+Q23 H023 p1 20.1s -> The black dog appears twice in the video.
+ENTER H024 pass-1
+Q24 H024 p1 43.4s -> There are two books standing on the desk in the black-and-white shot.
+ENTER H025 pass-1
+Q25 H025 p1 69.4s -> 3
+ENTER H026 pass-1
+Q26 H026 p1 11.0s -> The handwritten notes in the open notebook are not legible in the video.
+ENTER H027 pass-1
+Q27 H027 p1 13.3s -> The smartphone screen is not visible in the video.
+ENTER H028 pass-1
+Q28 H028 p1 14.5s -> The brand of the white car visible through the cafe window cannot be determined from the video.
+ENTER H029 pass-1
+Q29 H029 p1 14.5s -> The first three words of the blurred text on the open-book flash frame at ~49.5 seconds are "back at the desk".
+ENTER H030 pass-1
+Q30 H030 p1 22.8s -> 10 segments
+ENTER H031 pass-1
+Q31 H031 p1 19.6s -> The cafe table shot appears twice in the video. The first appearance is from 00:31 to 00:36, and the second appearance, which is a mirrored return, is from 00:4
+ENTER H032 pass-1
+Q32 H032 p1 9.4s -> The main text of the opening title card says 'WEEKEND CUT'.
+ENTER H033 pass-1
+Q33 H033 p1 17.5s -> The smaller subtitle line under the opening title is 'sat - sun'.
+ENTER H034 pass-1
+Q34 H034 p1 18.1s -> The lower-third overlay shows 'the cut — 23:10'.
+ENTER H035 pass-1
+Q35 H035 p1 28.5s -> The subtitle line under the word MEANWHILE is "back at the desk".
+ENTER H036 pass-1
+Q36 H036 p1 18.0s -> The word printed on the book standing on the desk in the black-and-white shot is 'Symbol'.
+ENTER H037 pass-1
+Q37 H037 p1 11.5s -> 18
+ENTER H038 pass-1
+Q38 H038 p1 29.9s -> The letters REC appear next to the blinking red dot in the top-left corner of the desk shot.
+ENTER H039 pass-1
+Q39 H039 p1 75.8s -> The chateau shot comes first in the video.
+ENTER H040 pass-1
+Q40 H040 p1 82.9s -> The flat-lay overhead desk shot comes first, appearing from 00:39 to 00:44, before the mirrored cafe shot at 00:50.
+ENTER H041 pass-1
+Q41 H041 p1 29.1s -> The black dog appears near both the beginning and the end of the video.
+ENTER H042 pass-1
+Q42 H042 p1 44.6s -> The camera pans to the right.
+ENTER H043 pass-1
+Q43 H043 p1 55.4s -> The camera pans to the right.
+ENTER H044 pass-1
+Q44 H044 p1 71.4s -> The second appearance of the cafe table shot is in black and white, while the first appearance is in color.
+WROTE /workspaces/video-editor-bench/benchmark/v2/results/results_harder_twelvelabs.json
+SUMMARY answered=44 errors=0 total_wall=1171s

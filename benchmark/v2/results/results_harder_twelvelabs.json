@@ -1,0 +1,189 @@
+{
+ "model_key": "twelvelabs",
+ "model": "pegasus1.5",
+ "video": "/workspaces/video-editor-bench/benchmark/v2/benchmark.mp4",
+ "asset_id": "6ad498703c19fccbbc9c35ff",
+ "n_retries": 0,
+ "answers": {
+  "H001": "The dissolve from the flowers shot to the beach shot begins at 00:11.",
+  "H002": "26.0",
+  "H003": "The dip-to-black transition from the canal to the cafe begins at the 31-second mark.",
+  "H004": "38.0",
+  "H005": "53 seconds",
+  "H006": "Around 21 seconds, the transition connecting the sea-view vista to the chateau is a dissolve.",
+  "H007": "A dissolve transition connects the canal shot to the cafe shot around 31 seconds.",
+  "H008": "The transition that carries the MEANWHILE card into the desk shot is a slide transition, where the incoming image moves over the card from the left side.",
+  "H009": "The transition between the beach shot and the sea-view vista around 16 seconds is a cross-dissolve.",
+  "H010": "Around 44 seconds, the transition connecting the overhead desk shot to the flat-lay desk shot is a dissolve.",
+  "H011": "The dissolve between the flowers and beach shots is 2 seconds long.",
+  "H012": "The wipe from the chateau to the canal is 4 seconds long.",
+  "H013": "The zoom transition from the vista to the chateau is 4 seconds long.",
+  "H014": "The dip-to-black from the canal to the cafe is 1 second long.",
+  "H015": "The wipe from the mirrored cafe to the black-and-white desk is 3 seconds long.",
+  "H016": "The wipe transition at approximately 26 seconds moves from left to right, transitioning from the chateau scene to the canal scene.",
+  "H017": "The wipe transition at approximately 53 seconds moves from right to left.",
+  "H018": "The slide transition at ~38 seconds moves from right to left.",
+  "H019": "The stray image that flashes full-screen for 2 frames right before the MEANWHILE card at approximately 36 seconds shows a black Labrador puppy sitting on a wooden floor, looking up at the camera.",
+  "H020": "The image that flashes for 2 frames during the dissolve around 49.5 seconds is the black dog sitting on a wooden floor.",
+  "H021": "The dissolve between the flowers shot and the beach shot is unusual because it is a very long dissolve, lasting for several seconds, which is not typical for a transition between two shots. This extended dissolve can disrupt the pacing and flow of the video, making it feel unnatural and potentially confusing for the viewer.",
+  "H022": "There are two cups on the cafe table in the first cafe shot.",
+  "H023": "The black dog appears twice in the video. The first appearance is from 00:02 to 00:06, and the second appearance is from 00:59 to 01:02.",
+  "H024": "There are two books standing on the desk in the black-and-white shot.",
+  "H025": "3",
+  "H026": "The handwritten notes in the open notebook in the overhead desk shot are not legible due to the resolution and angle of the video.",
+  "H027": "The smartphone screen is not visible in the video.",
+  "H028": "The brand of the white car visible through the cafe window in the background cannot be determined from the video.",
+  "H029": "The first three words of the blurred text on the open-book flash frame at approximately 49.5 seconds are \"back at the desk.\"",
+  "H030": "The video contains 12 segments.",
+  "H031": "The cafe table shot appears twice in the video.",
+  "H032": "The main text of the opening title card says 'WEEKEND CUT'.",
+  "H033": "The smaller subtitle line under the opening title is 'sat - sun'.",
+  "H034": "The lower-third overlay shows 'the cut — 23:10'.",
+  "H035": "The subtitle line under the word MEANWHILE is \"back at the desk\".",
+  "H036": "The word printed on the book standing on the desk in the black-and-white shot is 'Symbol'.",
+  "H037": "18",
+  "H038": "The letters REC appear next to the blinking red dot in the top-left corner of the desk shot.",
+  "H039": "The chateau shot comes first in the video.",
+  "H040": "The flat-lay overhead desk shot comes first, appearing from 00:39 to 00:44, before the mirrored cafe shot at 00:50.",
+  "H041": "The black dog appears near both the beginning and the end of the video.",
+  "H042": "The camera pans to the right.",
+  "H043": "The camera pans to the right.",
+  "H044": "In the second appearance of the cafe table shot, the camera angle is slightly different, showing more of the table's length and the chairs on the side."
+ },
+ "per_pass": {
+  "H001": [
+   "The dissolve from the flowers shot to the beach shot begins at 00:11."
+  ],
+  "H002": [
+   "26.0"
+  ],
+  "H003": [
+   "The dip-to-black transition from the canal to the cafe begins at the 31-second mark."
+  ],
+  "H004": [
+   "38.0"
+  ],
+  "H005": [
+   "53 seconds"
+  ],
+  "H006": [
+   "Around 21 seconds, the transition connecting the sea-view vista to the chateau is a dissolve."
+  ],
+  "H007": [
+   "A dissolve transition connects the canal shot to the cafe shot around 31 seconds."
+  ],
+  "H008": [
+   "The transition that carries the MEANWHILE card into the desk shot is a slide transition, where the incoming image moves over the card from the left side."
+  ],
+  "H009": [
+   "The transition between the beach shot and the sea-view vista around 16 seconds is a cross-dissolve."
+  ],
+  "H010": [
+   "Around 44 seconds, the transition connecting the overhead desk shot to the flat-lay desk shot is a dissolve."
+  ],
+  "H011": [
+   "The dissolve between the flowers and beach shots is 2 seconds long."
+  ],
+  "H012": [
+   "The wipe from the chateau to the canal is 4 seconds long."
+  ],
+  "H013": [
+   "The zoom transition from the vista to the chateau is 4 seconds long."
+  ],
+  "H014": [
+   "The dip-to-black from the canal to the cafe is 1 second long."
+  ],
+  "H015": [
+   "The wipe from the mirrored cafe to the black-and-white desk is 3 seconds long."
+  ],
+  "H016": [
+   "The wipe transition at approximately 26 seconds moves from left to right, transitioning from the chateau scene to the canal scene."
+  ],
+  "H017": [
+   "The wipe transition at approximately 53 seconds moves from right to left."
+  ],
+  "H018": [
+   "The slide transition at ~38 seconds moves from right to left."
+  ],
+  "H019": [
+   "The stray image that flashes full-screen for 2 frames right before the MEANWHILE card at approximately 36 seconds shows a black Labrador puppy sitting on a wooden floor, looking up at the camera."
+  ],
+  "H020": [
+   "The image that flashes for 2 frames during the dissolve around 49.5 seconds is the black dog sitting on a wooden floor."
+  ],
+  "H021": [
+   "The dissolve between the flowers shot and the beach shot is unusual because it is a very long dissolve, lasting for several seconds, which is not typical for a transition between two shots. This extended dissolve can disrupt the pacing and flow of the video, making it feel unnatural and potentially confusing for the viewer."
+  ],
+  "H022": [
+   "There are two cups on the cafe table in the first cafe shot."
+  ],
+  "H023": [
+   "The black dog appears twice in the video. The first appearance is from 00:02 to 00:06, and the second appearance is from 00:59 to 01:02."
+  ],
+  "H024": [
+   "There are two books standing on the desk in the black-and-white shot."
+  ],
+  "H025": [
+   "3"
+  ],
+  "H026": [
+   "The handwritten notes in the open notebook in the overhead desk shot are not legible due to the resolution and angle of the video."
+  ],
+  "H027": [
+   "The smartphone screen is not visible in the video."
+  ],
+  "H028": [
+   "The brand of the white car visible through the cafe window in the background cannot be determined from the video."
+  ],
+  "H029": [
+   "The first three words of the blurred text on the open-book flash frame at approximately 49.5 seconds are \"back at the desk.\""
+  ],
+  "H030": [
+   "The video contains 12 segments."
+  ],
+  "H031": [
+   "The cafe table shot appears twice in the video."
+  ],
+  "H032": [
+   "The main text of the opening title card says 'WEEKEND CUT'."
+  ],
+  "H033": [
+   "The smaller subtitle line under the opening title is 'sat - sun'."
+  ],
+  "H034": [
+   "The lower-third overlay shows 'the cut — 23:10'."
+  ],
+  "H035": [
+   "The subtitle line under the word MEANWHILE is \"back at the desk\"."
+  ],
+  "H036": [
+   "The word printed on the book standing on the desk in the black-and-white shot is 'Symbol'."
+  ],
+  "H037": [
+   "18"
+  ],
+  "H038": [
+   "The letters REC appear next to the blinking red dot in the top-left corner of the desk shot."
+  ],
+  "H039": [
+   "The chateau shot comes first in the video."
+  ],
+  "H040": [
+   "The flat-lay overhead desk shot comes first, appearing from 00:39 to 00:44, before the mirrored cafe shot at 00:50."
+  ],
+  "H041": [
+   "The black dog appears near both the beginning and the end of the video."
+  ],
+  "H042": [
+   "The camera pans to the right."
+  ],
+  "H043": [
+   "The camera pans to the right."
+  ],
+  "H044": [
+   "In the second appearance of the cafe table shot, the camera angle is slightly different, showing more of the table's length and the chairs on the side."
+  ]
+ },
+ "errors": [],
+ "total_wall_s": 344.5
+}

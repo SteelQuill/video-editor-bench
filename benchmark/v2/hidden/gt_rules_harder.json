@@ -1,0 +1,602 @@
+{
+ "rules": {
+  "H001": {
+   "category": "transition-timing",
+   "type": "timestamp_s",
+   "flags": {},
+   "gt": {
+    "mode": "timestamp_s",
+    "answer": 11.0,
+    "tol": 0.35
+   }
+  },
+  "H002": {
+   "category": "transition-timing",
+   "type": "timestamp_s",
+   "flags": {},
+   "gt": {
+    "mode": "timestamp_s",
+    "answer": 26.0,
+    "tol": 0.35
+   }
+  },
+  "H003": {
+   "category": "transition-timing",
+   "type": "timestamp_s",
+   "flags": {},
+   "gt": {
+    "mode": "timestamp_s",
+    "answer": 31.0,
+    "tol": 0.35
+   }
+  },
+  "H004": {
+   "category": "transition-timing",
+   "type": "timestamp_s",
+   "flags": {},
+   "gt": {
+    "mode": "timestamp_s",
+    "answer": 38.07,
+    "tol": 0.35
+   }
+  },
+  "H005": {
+   "category": "transition-timing",
+   "type": "timestamp_s",
+   "flags": {},
+   "gt": {
+    "mode": "timestamp_s",
+    "answer": 53.0,
+    "tol": 0.35
+   }
+  },
+  "H006": {
+   "category": "transition-identification",
+   "type": "closed",
+   "flags": {},
+   "gt": {
+    "mode": "accepted",
+    "accepted": [
+     "zoom",
+     "scale",
+     "scale-blend",
+     "zoom-blend",
+     "zoom in",
+     "zoom transition"
+    ]
+   }
+  },
+  "H007": {
+   "category": "transition-identification",
+   "type": "closed",
+   "flags": {},
+   "gt": {
+    "mode": "accepted",
+    "accepted": [
+     "dip to black",
+     "dip-to-black",
+     "dip",
+     "fade through black",
+     "fade to black"
+    ]
+   }
+  },
+  "H008": {
+   "category": "transition-identification",
+   "type": "closed",
+   "flags": {},
+   "gt": {
+    "mode": "accepted",
+    "accepted": [
+     "slide",
+     "slide up",
+     "push",
+     "push up"
+    ]
+   }
+  },
+  "H009": {
+   "category": "transition-identification",
+   "type": "closed",
+   "flags": {},
+   "gt": {
+    "mode": "accepted",
+    "accepted": [
+     "cut",
+     "hard cut",
+     "straight cut",
+     "jump cut"
+    ]
+   }
+  },
+  "H010": {
+   "category": "transition-identification",
+   "type": "closed",
+   "flags": {},
+   "gt": {
+    "mode": "accepted",
+    "accepted": [
+     "dissolve",
+     "crossfade",
+     "cross dissolve",
+     "cross-fade"
+    ]
+   }
+  },
+  "H011": {
+   "category": "transition-duration",
+   "type": "number_s",
+   "flags": {},
+   "gt": {
+    "mode": "number_s",
+    "answer": 0.5,
+    "tol": 0.1
+   }
+  },
+  "H012": {
+   "category": "transition-duration",
+   "type": "number_s",
+   "flags": {},
+   "gt": {
+    "mode": "number_s",
+    "answer": 0.33,
+    "tol": 0.1
+   }
+  },
+  "H013": {
+   "category": "transition-duration",
+   "type": "number_s",
+   "flags": {},
+   "gt": {
+    "mode": "number_s",
+    "answer": 0.2,
+    "tol": 0.1
+   }
+  },
+  "H014": {
+   "category": "transition-duration",
+   "type": "number_s",
+   "flags": {},
+   "gt": {
+    "mode": "number_s",
+    "answer": 0.2,
+    "tol": 0.1
+   }
+  },
+  "H015": {
+   "category": "transition-duration",
+   "type": "number_s",
+   "flags": {},
+   "gt": {
+    "mode": "number_s",
+    "answer": 0.27,
+    "tol": 0.1
+   }
+  },
+  "H016": {
+   "category": "transition-direction",
+   "type": "closed",
+   "flags": {},
+   "gt": {
+    "mode": "accepted",
+    "accepted": [
+     "left to right",
+     "left-to-right",
+     "l->r",
+     "left right",
+     "from left",
+     "leftwards",
+     "left to right direction"
+    ]
+   }
+  },
+  "H017": {
+   "category": "transition-direction",
+   "type": "closed",
+   "flags": {},
+   "gt": {
+    "mode": "accepted",
+    "accepted": [
+     "right to left",
+     "right-to-left",
+     "r->l",
+     "from right",
+     "rightwards"
+    ]
+   }
+  },
+  "H018": {
+   "category": "transition-direction",
+   "type": "closed",
+   "flags": {},
+   "gt": {
+    "mode": "accepted",
+    "accepted": [
+     "up",
+     "upward",
+     "upwards",
+     "slides up",
+     "bottom to top"
+    ]
+   }
+  },
+  "H019": {
+   "category": "bad-edit-detection",
+   "type": "text",
+   "flags": {},
+   "gt": {
+    "mode": "tiered",
+    "full_substrings": [
+     "onion",
+     "red onion",
+     "vegetable",
+     "chopped onion"
+    ],
+    "half_substrings": [
+     "food",
+     "cooking",
+     "cutting board",
+     "kitchen"
+    ]
+   }
+  },
+  "H020": {
+   "category": "bad-edit-detection",
+   "type": "text",
+   "flags": {},
+   "gt": {
+    "mode": "tiered",
+    "full_substrings": [
+     "open book",
+     "book"
+    ],
+    "half_substrings": [
+     "book",
+     "reading",
+     "page"
+    ]
+   }
+  },
+  "H021": {
+   "category": "bad-edit-detection",
+   "type": "text",
+   "flags": {},
+   "gt": {
+    "mode": "tiered",
+    "full_substrings": [
+     "too long",
+     "overlong",
+     "too slow",
+     "long dissolve",
+     "slow dissolve",
+     "excessively long"
+    ],
+    "half_substrings": [
+     "long",
+     "slow",
+     "duration",
+     "length"
+    ]
+   }
+  },
+  "H022": {
+   "category": "object-count",
+   "type": "integer",
+   "flags": {},
+   "gt": {
+    "mode": "tol",
+    "answer": 2,
+    "tol": 0
+   }
+  },
+  "H023": {
+   "category": "object-count",
+   "type": "integer",
+   "flags": {},
+   "gt": {
+    "mode": "tol",
+    "answer": 2,
+    "tol": 0
+   }
+  },
+  "H024": {
+   "category": "object-count",
+   "type": "integer",
+   "flags": {},
+   "gt": {
+    "mode": "tol",
+    "answer": 2,
+    "tol": 0
+   }
+  },
+  "H025": {
+   "category": "object-count",
+   "type": "integer",
+   "flags": {},
+   "gt": {
+    "mode": "tol",
+    "answer": 3,
+    "tol": 0
+   }
+  },
+  "H026": {
+   "category": "not-observable",
+   "type": "text",
+   "flags": {},
+   "gt": {
+    "mode": "accepted",
+    "accepted": [
+     "cannot determine",
+     "not visible",
+     "cannot tell",
+     "unable to determine",
+     "illegible",
+     "unreadable",
+     "not observable",
+     "cannot read",
+     "too small",
+     "too blurry",
+     "blurry"
+    ]
+   }
+  },
+  "H027": {
+   "category": "not-observable",
+   "type": "text",
+   "flags": {},
+   "gt": {
+    "mode": "accepted",
+    "accepted": [
+     "none",
+     "no text",
+     "screen is off",
+     "blank",
+     "off",
+     "cannot determine",
+     "not visible",
+     "no text visible",
+     "screen off",
+     "black screen"
+    ]
+   }
+  },
+  "H028": {
+   "category": "not-observable",
+   "type": "text",
+   "flags": {},
+   "gt": {
+    "mode": "accepted",
+    "accepted": [
+     "cannot determine",
+     "not visible",
+     "cannot tell",
+     "unable to determine",
+     "not observable",
+     "cannot read",
+     "unknown"
+    ]
+   }
+  },
+  "H029": {
+   "category": "not-observable",
+   "type": "text",
+   "flags": {},
+   "gt": {
+    "mode": "accepted",
+    "accepted": [
+     "cannot determine",
+     "not visible",
+     "cannot tell",
+     "unable to determine",
+     "illegible",
+     "unreadable",
+     "not observable",
+     "cannot read",
+     "too blurry",
+     "blurry"
+    ]
+   }
+  },
+  "H030": {
+   "category": "shot-count",
+   "type": "integer",
+   "flags": {},
+   "gt": {
+    "mode": "tol",
+    "answer": 15,
+    "tol": 0
+   }
+  },
+  "H031": {
+   "category": "shot-count",
+   "type": "integer",
+   "flags": {},
+   "gt": {
+    "mode": "tol",
+    "answer": 2,
+    "tol": 0
+   }
+  },
+  "H032": {
+   "category": "ocr-title",
+   "type": "text",
+   "flags": {},
+   "gt": {
+    "mode": "accepted",
+    "accepted": [
+     "WEEKEND CUT"
+    ]
+   }
+  },
+  "H033": {
+   "category": "ocr-title",
+   "type": "text",
+   "flags": {},
+   "gt": {
+    "mode": "accepted",
+    "accepted": [
+     "sat — sun",
+     "sat - sun",
+     "sat–sun"
+    ]
+   }
+  },
+  "H034": {
+   "category": "ocr-overlay",
+   "type": "text",
+   "flags": {},
+   "gt": {
+    "mode": "accepted",
+    "accepted": [
+     "the cut — 23:10",
+     "the cut - 23:10",
+     "the cut–23:10",
+     "the cut 23:10"
+    ]
+   }
+  },
+  "H035": {
+   "category": "ocr-overlay",
+   "type": "text",
+   "flags": {},
+   "gt": {
+    "mode": "accepted",
+    "accepted": [
+     "back at the desk"
+    ]
+   }
+  },
+  "H036": {
+   "category": "ocr-prop",
+   "type": "text",
+   "flags": {},
+   "gt": {
+    "mode": "accepted",
+    "accepted": [
+     "Symbol",
+     "symbol"
+    ]
+   }
+  },
+  "H037": {
+   "category": "ocr-prop",
+   "type": "text",
+   "flags": {},
+   "gt": {
+    "mode": "accepted",
+    "accepted": [
+     "18"
+    ]
+   }
+  },
+  "H038": {
+   "category": "ocr-overlay",
+   "type": "text",
+   "flags": {},
+   "gt": {
+    "mode": "accepted",
+    "accepted": [
+     "REC",
+     "rec"
+    ]
+   }
+  },
+  "H039": {
+   "category": "spatial-order",
+   "type": "closed",
+   "flags": {},
+   "gt": {
+    "mode": "accepted",
+    "accepted": [
+     "chateau",
+     "castle",
+     "chateau shot"
+    ]
+   }
+  },
+  "H040": {
+   "category": "spatial-order",
+   "type": "closed",
+   "flags": {},
+   "gt": {
+    "mode": "accepted",
+    "accepted": [
+     "flat-lay",
+     "flat lay",
+     "flatlay",
+     "overhead desk",
+     "overhead",
+     "flat-lay desk"
+    ]
+   }
+  },
+  "H041": {
+   "category": "long-range-reappearance",
+   "type": "text",
+   "flags": {},
+   "gt": {
+    "mode": "accepted",
+    "accepted": [
+     "dog",
+     "puppy",
+     "black dog",
+     "black lab",
+     "labrador",
+     "dog/puppy"
+    ]
+   }
+  },
+  "H042": {
+   "category": "motion-direction",
+   "type": "closed",
+   "flags": {},
+   "gt": {
+    "mode": "accepted",
+    "accepted": [
+     "left",
+     "leftwards",
+     "leftward",
+     "to the left",
+     "pan left",
+     "pans left"
+    ]
+   }
+  },
+  "H043": {
+   "category": "motion-direction",
+   "type": "closed",
+   "flags": {},
+   "gt": {
+    "mode": "accepted",
+    "accepted": [
+     "right",
+     "rightwards",
+     "rightward",
+     "to the right",
+     "pan right",
+     "pans right"
+    ]
+   }
+  },
+  "H044": {
+   "category": "continuity-mismatch",
+   "type": "text",
+   "flags": {},
+   "gt": {
+    "mode": "tiered",
+    "full_substrings": [
+     "mirror",
+     "flipped",
+     "flip",
+     "reversed",
+     "horizontally"
+    ],
+    "half_substrings": [
+     "mirrored",
+     "flipped",
+     "opposite"
+    ]
+   }
+  }
+ }
+}

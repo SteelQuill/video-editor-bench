@@ -1,0 +1,271 @@
+{
+ "schema": "v2-harder-questions/1",
+ "note": "Harder set grounded in src/timeline.py. Additive to the 49 v2 questions.",
+ "video": "benchmark.mp4",
+ "questions": [
+  {
+   "id": "H001",
+   "category": "transition-timing",
+   "type": "timestamp_s",
+   "question": "At what second does the dissolve from the flowers shot to the beach shot BEGIN?"
+  },
+  {
+   "id": "H002",
+   "category": "transition-timing",
+   "type": "timestamp_s",
+   "question": "At what second does the wipe from the chateau to the canal BEGIN?"
+  },
+  {
+   "id": "H003",
+   "category": "transition-timing",
+   "type": "timestamp_s",
+   "question": "At what second does the dip-to-black transition from the canal to the cafe BEGIN?"
+  },
+  {
+   "id": "H004",
+   "category": "transition-timing",
+   "type": "timestamp_s",
+   "question": "At what second does the transition from the MEANWHILE card to the desk shot BEGIN?"
+  },
+  {
+   "id": "H005",
+   "category": "transition-timing",
+   "type": "timestamp_s",
+   "question": "At what second does the wipe from the mirrored cafe to the black-and-white desk BEGIN?"
+  },
+  {
+   "id": "H006",
+   "category": "transition-identification",
+   "type": "closed",
+   "question": "Around 21 seconds, what type of transition connects the sea-view vista to the chateau?"
+  },
+  {
+   "id": "H007",
+   "category": "transition-identification",
+   "type": "closed",
+   "question": "Around 31 seconds, what type of transition connects the canal shot to the cafe shot?"
+  },
+  {
+   "id": "H008",
+   "category": "transition-identification",
+   "type": "closed",
+   "question": "What type of transition carries the MEANWHILE card into the desk shot (the incoming image moves over the card)?"
+  },
+  {
+   "id": "H009",
+   "category": "transition-identification",
+   "type": "closed",
+   "question": "Around 16 seconds, what type of transition connects the beach shot to the sea-view vista?"
+  },
+  {
+   "id": "H010",
+   "category": "transition-identification",
+   "type": "closed",
+   "question": "Around 44 seconds, what type of transition connects the overhead desk shot to the flat-lay desk shot?"
+  },
+  {
+   "id": "H011",
+   "category": "transition-duration",
+   "type": "number_s",
+   "question": "How many seconds long is the dissolve between the flowers and beach shots?"
+  },
+  {
+   "id": "H012",
+   "category": "transition-duration",
+   "type": "number_s",
+   "question": "How many seconds long is the wipe from the chateau to the canal?"
+  },
+  {
+   "id": "H013",
+   "category": "transition-duration",
+   "type": "number_s",
+   "question": "How many seconds long is the zoom transition from the vista to the chateau?"
+  },
+  {
+   "id": "H014",
+   "category": "transition-duration",
+   "type": "number_s",
+   "question": "How many seconds long is the dip-to-black from the canal to the cafe?"
+  },
+  {
+   "id": "H015",
+   "category": "transition-duration",
+   "type": "number_s",
+   "question": "How many seconds long is the wipe from the mirrored cafe to the black-and-white desk?"
+  },
+  {
+   "id": "H016",
+   "category": "transition-direction",
+   "type": "closed",
+   "question": "What is the DIRECTION of the wipe at ~26 seconds (chateau to canal)?"
+  },
+  {
+   "id": "H017",
+   "category": "transition-direction",
+   "type": "closed",
+   "question": "What is the DIRECTION of the wipe at ~53 seconds (mirrored cafe to black-and-white desk)?"
+  },
+  {
+   "id": "H018",
+   "category": "transition-direction",
+   "type": "closed",
+   "question": "What is the DIRECTION of the slide transition at ~38 seconds (MEANWHILE card to desk shot)?"
+  },
+  {
+   "id": "H019",
+   "category": "bad-edit-detection",
+   "type": "text",
+   "question": "A stray image flashes full-screen for 2 frames right before the MEANWHILE card at ~36 seconds. What does it show?"
+  },
+  {
+   "id": "H020",
+   "category": "bad-edit-detection",
+   "type": "text",
+   "question": "During the dissolve around 49.5 seconds (overhead desk to mirrored cafe), a single image flashes for 2 frames. What is it?"
+  },
+  {
+   "id": "H021",
+   "category": "bad-edit-detection",
+   "type": "text",
+   "question": "The dissolve between the flowers shot and the beach shot is unusual from an editor's point of view. What is wrong with it?"
+  },
+  {
+   "id": "H022",
+   "category": "object-count",
+   "type": "integer",
+   "question": "How many cups are on the cafe table in the first cafe shot?"
+  },
+  {
+   "id": "H023",
+   "category": "object-count",
+   "type": "integer",
+   "question": "How many times does the black dog appear in the video (counting both appearances)?"
+  },
+  {
+   "id": "H024",
+   "category": "object-count",
+   "type": "integer",
+   "question": "How many books are standing on the desk in the black-and-white shot?"
+  },
+  {
+   "id": "H025",
+   "category": "object-count",
+   "type": "integer",
+   "question": "How many full-screen TEXT cards (title, interlude, end) appear in the video?"
+  },
+  {
+   "id": "H026",
+   "category": "not-observable",
+   "type": "text",
+   "question": "What is written in the handwritten notes of the open notebook in the overhead desk shot?"
+  },
+  {
+   "id": "H027",
+   "category": "not-observable",
+   "type": "text",
+   "question": "What text is visible on the smartphone screen lying on the cafe table?"
+  },
+  {
+   "id": "H028",
+   "category": "not-observable",
+   "type": "text",
+   "question": "What is the brand of the white car visible through the cafe window in the background?"
+  },
+  {
+   "id": "H029",
+   "category": "not-observable",
+   "type": "text",
+   "question": "What are the first three words of the blurred text on the open-book flash frame at ~49.5 seconds?"
+  },
+  {
+   "id": "H030",
+   "category": "shot-count",
+   "type": "integer",
+   "question": "Counting each scene and each full-screen text card as one segment (ignore the brief flash inserts), how many segments does this edit contain?"
+  },
+  {
+   "id": "H031",
+   "category": "shot-count",
+   "type": "integer",
+   "question": "How many times does the cafe table shot appear in the video (counting both the original and the mirrored return)?"
+  },
+  {
+   "id": "H032",
+   "category": "ocr-title",
+   "type": "text",
+   "question": "What does the main text of the opening title card say?"
+  },
+  {
+   "id": "H033",
+   "category": "ocr-title",
+   "type": "text",
+   "question": "What is the smaller subtitle line under the opening title?"
+  },
+  {
+   "id": "H034",
+   "category": "ocr-overlay",
+   "type": "text",
+   "question": "What does the lower-third overlay show during the desk shot with the REC indicator?"
+  },
+  {
+   "id": "H035",
+   "category": "ocr-overlay",
+   "type": "text",
+   "question": "What is the subtitle line under the word MEANWHILE on the mid-video card?"
+  },
+  {
+   "id": "H036",
+   "category": "ocr-prop",
+   "type": "text",
+   "question": "What word is printed on the book standing on the desk in the black-and-white shot?"
+  },
+  {
+   "id": "H037",
+   "category": "ocr-prop",
+   "type": "text",
+   "question": "What number is shown on the black desk calendar in the black-and-white shot?"
+  },
+  {
+   "id": "H038",
+   "category": "ocr-overlay",
+   "type": "text",
+   "question": "Which three letters appear next to the blinking red dot in the top-left corner of the desk shot?"
+  },
+  {
+   "id": "H039",
+   "category": "spatial-order",
+   "type": "closed",
+   "question": "Which comes FIRST in the video: the chateau shot or the canal shot?"
+  },
+  {
+   "id": "H040",
+   "category": "spatial-order",
+   "type": "closed",
+   "question": "Which comes FIRST: the flat-lay overhead desk shot or the mirrored cafe shot?"
+  },
+  {
+   "id": "H041",
+   "category": "long-range-reappearance",
+   "type": "text",
+   "question": "Which subject appears near both the BEGINNING and the END of the video?"
+  },
+  {
+   "id": "H042",
+   "category": "motion-direction",
+   "type": "closed",
+   "question": "In the canal shot (~26-31 s), which direction does the camera PAN?"
+  },
+  {
+   "id": "H043",
+   "category": "motion-direction",
+   "type": "closed",
+   "question": "In the overhead desk shot with the REC indicator (~38-44 s), which direction does the camera PAN?"
+  },
+  {
+   "id": "H044",
+   "category": "continuity-mismatch",
+   "type": "text",
+   "question": "The cafe table shot appears twice. What is DIFFERENT about the second appearance compared to the first?"
+  }
+ ]
+}

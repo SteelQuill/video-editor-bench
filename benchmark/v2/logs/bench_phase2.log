@@ -1,0 +1,49 @@
+FILTERED to 23 questions
+ENTER H006 pass-1
+Q01 H006 p1 112.0s -> Around 21 seconds, the transition connecting the sea-view vista to the chateau is a dissolve.
+ENTER H007 pass-1
+Q02 H007 p1 9.7s -> A dissolve transition connects the canal shot to the cafe shot around 31 seconds.
+ENTER H009 pass-1
+Q03 H009 p1 15.7s -> The transition between the beach shot and the sea-view vista around 16 seconds is a cross-dissolve.
+ENTER H011 pass-1
+Q04 H011 p1 8.0s -> The dissolve between the flowers and beach shots is 2 seconds long.
+ENTER H012 pass-1
+Q05 H012 p1 8.3s -> The wipe from the chateau to the canal is 4 seconds long.
+ENTER H013 pass-1
+Q06 H013 p1 8.1s -> The zoom transition from the vista to the chateau is 4 seconds long.
+ENTER H014 pass-1
+Q07 H014 p1 7.4s -> The dip-to-black from the canal to the cafe is 1 second long.
+ENTER H015 pass-1
+Q08 H015 p1 7.9s -> The wipe from the mirrored cafe to the black-and-white desk is 3 seconds long.
+ENTER H017 pass-1
+Q09 H017 p1 8.5s -> The wipe transition at approximately 53 seconds moves from right to left.
+ENTER H018 pass-1
+Q10 H018 p1 8.5s -> The slide transition at ~38 seconds moves from right to left.
+ENTER H019 pass-1
+Q11 H019 p1 8.6s -> The stray image that flashes full-screen for 2 frames right before the MEANWHILE card at approximately 36 seconds shows a black Labrador puppy sitting on a wood
+ENTER H020 pass-1
+Q12 H020 p1 8.1s -> The image that flashes for 2 frames during the dissolve around 49.5 seconds is the black dog sitting on a wooden floor.
+ENTER H021 pass-1
+Q13 H021 p1 7.8s -> The dissolve between the flowers shot and the beach shot is unusual because it is a very long dissolve, lasting for several seconds, which is not typical for a 
+ENTER H022 pass-1
+Q14 H022 p1 8.2s -> There are two cups on the cafe table in the first cafe shot.
+ENTER H023 pass-1
+Q15 H023 p1 8.7s -> The black dog appears twice in the video. The first appearance is from 00:02 to 00:06, and the second appearance is from 00:59 to 01:02.
+ENTER H024 pass-1
+Q16 H024 p1 8.0s -> There are two books standing on the desk in the black-and-white shot.
+ENTER H026 pass-1
+Q17 H026 p1 7.4s -> The handwritten notes in the open notebook in the overhead desk shot are not legible due to the resolution and angle of the video.
+ENTER H028 pass-1
+Q18 H028 p1 10.5s -> The brand of the white car visible through the cafe window in the background cannot be determined from the video.
+ENTER H029 pass-1
+Q19 H029 p1 7.5s -> The first three words of the blurred text on the open-book flash frame at approximately 49.5 seconds are "back at the desk."
+ENTER H030 pass-1
+Q20 H030 p1 7.6s -> The video contains 12 segments.
+ENTER H031 pass-1
+Q21 H031 p1 7.6s -> The cafe table shot appears twice in the video.
+ENTER H042 pass-1
+Q22 H042 p1 7.2s -> The camera pans to the right.
+ENTER H044 pass-1
+Q23 H044 p1 7.3s -> In the second appearance of the cafe table shot, the camera angle is slightly different, showing more of the table's length and the chairs on the side.
+WROTE /workspaces/video-editor-bench/benchmark/v2/results/results_harder_twelvelabs.json
+SUMMARY answered=44 errors=0 total_wall=345s

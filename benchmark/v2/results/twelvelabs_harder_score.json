@@ -1,0 +1,336 @@
+{
+ "model": "twelvelabs_harder",
+ "total_score": 29.0,
+ "total_max": 44.0,
+ "percent": 65.91,
+ "na": [],
+ "missing": [],
+ "by_category": {
+  "bad-edit-detection": {
+   "score": 1.0,
+   "max": 3
+  },
+  "continuity-mismatch": {
+   "score": 0.0,
+   "max": 1
+  },
+  "long-range-reappearance": {
+   "score": 1.0,
+   "max": 1
+  },
+  "motion-direction": {
+   "score": 1.0,
+   "max": 2
+  },
+  "not-observable": {
+   "score": 3.0,
+   "max": 4
+  },
+  "object-count": {
+   "score": 4.0,
+   "max": 4
+  },
+  "ocr-overlay": {
+   "score": 3.0,
+   "max": 3
+  },
+  "ocr-prop": {
+   "score": 2.0,
+   "max": 2
+  },
+  "ocr-title": {
+   "score": 2.0,
+   "max": 2
+  },
+  "shot-count": {
+   "score": 1.0,
+   "max": 2
+  },
+  "spatial-order": {
+   "score": 2.0,
+   "max": 2
+  },
+  "transition-direction": {
+   "score": 2.0,
+   "max": 3
+  },
+  "transition-duration": {
+   "score": 0.0,
+   "max": 5
+  },
+  "transition-identification": {
+   "score": 2.0,
+   "max": 5
+  },
+  "transition-timing": {
+   "score": 5.0,
+   "max": 5
+  }
+ },
+ "per_question": {
+  "H001": {
+   "score": 1.0,
+   "detail": "|11-11.0|<=0.35",
+   "raw": "The dissolve from the flowers shot to the beach shot begins at 00:11.",
+   "category": "transition-timing"
+  },
+  "H002": {
+   "score": 1.0,
+   "detail": "|26.0-26.0|<=0.35",
+   "raw": "26.0",
+   "category": "transition-timing"
+  },
+  "H003": {
+   "score": 1.0,
+   "detail": "|31.0-31.0|<=0.35",
+   "raw": "The dip-to-black transition from the canal to the cafe begins at the 31-second mark.",
+   "category": "transition-timing"
+  },
+  "H004": {
+   "score": 1.0,
+   "detail": "|38.0-38.07|<=0.35",
+   "raw": "38.0",
+   "category": "transition-timing"
+  },
+  "H005": {
+   "score": 1.0,
+   "detail": "|53.0-53.0|<=0.35",
+   "raw": "53 seconds",
+   "category": "transition-timing"
+  },
+  "H006": {
+   "score": 0.0,
+   "detail": "no match (normalized 'around 21 seconds, the transition connecting the sea-view vista to the chateau is a dissolve')",
+   "raw": "Around 21 seconds, the transition connecting the sea-view vista to the chateau is a dissolve.",
+   "category": "transition-identification"
+  },
+  "H007": {
+   "score": 0.0,
+   "detail": "no match (normalized 'a dissolve transition connects the canal shot to the cafe shot around 31 seconds')",
+   "raw": "A dissolve transition connects the canal shot to the cafe shot around 31 seconds.",
+   "category": "transition-identification"
+  },
+  "H008": {
+   "score": 1.0,
+   "detail": "contains match: 'slide'",
+   "raw": "The transition that carries the MEANWHILE card into the desk shot is a slide transition, where the incoming image moves over the card from the left side.",
+   "category": "transition-identification"
+  },
+  "H009": {
+   "score": 0.0,
+   "detail": "no match (normalized 'the transition between the beach shot and the sea-view vista around 16 seconds is a cross-dissolve')",
+   "raw": "The transition between the beach shot and the sea-view vista around 16 seconds is a cross-dissolve.",
+   "category": "transition-identification"
+  },
+  "H010": {
+   "score": 1.0,
+   "detail": "contains match: 'dissolve'",
+   "raw": "Around 44 seconds, the transition connecting the overhead desk shot to the flat-lay desk shot is a dissolve.",
+   "category": "transition-identification"
+  },
+  "H011": {
+   "score": 0.0,
+   "detail": "|2.0-0.5|>0.1",
+   "raw": "The dissolve between the flowers and beach shots is 2 seconds long.",
+   "category": "transition-duration"
+  },
+  "H012": {
+   "score": 0.0,
+   "detail": "|4.0-0.33|>0.1",
+   "raw": "The wipe from the chateau to the canal is 4 seconds long.",
+   "category": "transition-duration"
+  },
+  "H013": {
+   "score": 0.0,
+   "detail": "|4.0-0.2|>0.1",
+   "raw": "The zoom transition from the vista to the chateau is 4 seconds long.",
+   "category": "transition-duration"
+  },
+  "H014": {
+   "score": 0.0,
+   "detail": "|1.0-0.2|>0.1",
+   "raw": "The dip-to-black from the canal to the cafe is 1 second long.",
+   "category": "transition-duration"
+  },
+  "H015": {
+   "score": 0.0,
+   "detail": "|3.0-0.27|>0.1",
+   "raw": "The wipe from the mirrored cafe to the black-and-white desk is 3 seconds long.",
+   "category": "transition-duration"
+  },
+  "H016": {
+   "score": 1.0,
+   "detail": "contains match: 'left to right'",
+   "raw": "The wipe transition at approximately 26 seconds moves from left to right, transitioning from the chateau scene to the canal scene.",
+   "category": "transition-direction"
+  },
+  "H017": {
+   "score": 1.0,
+   "detail": "contains match: 'right to left'",
+   "raw": "The wipe transition at approximately 53 seconds moves from right to left.",
+   "category": "transition-direction"
+  },
+  "H018": {
+   "score": 0.0,
+   "detail": "no match (normalized 'the slide transition at ~38 seconds moves from right to left')",
+   "raw": "The slide transition at ~38 seconds moves from right to left.",
+   "category": "transition-direction"
+  },
+  "H019": {
+   "score": 0.0,
+   "detail": "zero: 'the stray image that flashes full-screen for 2 frames right before the meanwhile card at approximately 36 seconds shows a black labrador puppy sitting on a wooden floor, looking up at the camera'",
+   "raw": "The stray image that flashes full-screen for 2 frames right before the MEANWHILE card at approximately 36 seconds shows a black Labrador puppy sitting on a wooden floor, looking up at the camera.",
+   "category": "bad-edit-detection"
+  },
+  "H020": {
+   "score": 0.0,
+   "detail": "zero: 'the image that flashes for 2 frames during the dissolve around 49.5 seconds is the black dog sitting on a wooden floor'",
+   "raw": "The image that flashes for 2 frames during the dissolve around 49.5 seconds is the black dog sitting on a wooden floor.",
+   "category": "bad-edit-detection"
+  },
+  "H021": {
+   "score": 1.0,
+   "detail": "full: 'long dissolve'",
+   "raw": "The dissolve between the flowers shot and the beach shot is unusual because it is a very long dissolve, lasting for several seconds, which is not typical for a transition between two shots. This extended dissolve can disrupt the pacing and flow of the video, making it feel unnatural and potentially confusing for the viewer.",
+   "category": "bad-edit-detection"
+  },
+  "H022": {
+   "score": 1.0,
+   "detail": "|2.0-2|<=0",
+   "raw": "There are two cups on the cafe table in the first cafe shot.",
+   "category": "object-count"
+  },
+  "H023": {
+   "score": 1.0,
+   "detail": "|2-2|<=0",
+   "raw": "The black dog appears twice in the video. The first appearance is from 00:02 to 00:06, and the second appearance is from 00:59 to 01:02.",
+   "category": "object-count"
+  },
+  "H024": {
+   "score": 1.0,
+   "detail": "|2.0-2|<=0",
+   "raw": "There are two books standing on the desk in the black-and-white shot.",
+   "category": "object-count"
+  },
+  "H025": {
+   "score": 1.0,
+   "detail": "|3.0-3|<=0",
+   "raw": "3",
+   "category": "object-count"
+  },
+  "H026": {
+   "score": 1.0,
+   "detail": "contains match: 'illegible'",
+   "raw": "The handwritten notes in the open notebook in the overhead desk shot are not legible due to the resolution and angle of the video.",
+   "category": "not-observable"
+  },
+  "H027": {
+   "score": 1.0,
+   "detail": "contains match: 'not visible'",
+   "raw": "The smartphone screen is not visible in the video.",
+   "category": "not-observable"
+  },
+  "H028": {
+   "score": 1.0,
+   "detail": "contains match: 'cannot determine'",
+   "raw": "The brand of the white car visible through the cafe window in the background cannot be determined from the video.",
+   "category": "not-observable"
+  },
+  "H029": {
+   "score": 0.0,
+   "detail": "no match (normalized 'the first three words of the blurred text on the open-book flash frame at approximately 49.5 seconds are \"back at the desk')",
+   "raw": "The first three words of the blurred text on the open-book flash frame at approximately 49.5 seconds are \"back at the desk.\"",
+   "category": "not-observable"
+  },
+  "H030": {
+   "score": 0.0,
+   "detail": "|12.0-15|>0",
+   "raw": "The video contains 12 segments.",
+   "category": "shot-count"
+  },
+  "H031": {
+   "score": 1.0,
+   "detail": "|2.0-2|<=0",
+   "raw": "The cafe table shot appears twice in the video.",
+   "category": "shot-count"
+  },
+  "H032": {
+   "score": 1.0,
+   "detail": "contains match: 'WEEKEND CUT'",
+   "raw": "The main text of the opening title card says 'WEEKEND CUT'.",
+   "category": "ocr-title"
+  },
+  "H033": {
+   "score": 1.0,
+   "detail": "contains match: 'sat — sun'",
+   "raw": "The smaller subtitle line under the opening title is 'sat - sun'.",
+   "category": "ocr-title"
+  },
+  "H034": {
+   "score": 1.0,
+   "detail": "contains match: 'the cut — 23:10'",
+   "raw": "The lower-third overlay shows 'the cut — 23:10'.",
+   "category": "ocr-overlay"
+  },
+  "H035": {
+   "score": 1.0,
+   "detail": "contains match: 'back at the desk'",
+   "raw": "The subtitle line under the word MEANWHILE is \"back at the desk\".",
+   "category": "ocr-overlay"
+  },
+  "H036": {
+   "score": 1.0,
+   "detail": "contains match: 'Symbol'",
+   "raw": "The word printed on the book standing on the desk in the black-and-white shot is 'Symbol'.",
+   "category": "ocr-prop"
+  },
+  "H037": {
+   "score": 1.0,
+   "detail": "exact match: '18'",
+   "raw": "18",
+   "category": "ocr-prop"
+  },
+  "H038": {
+   "score": 1.0,
+   "detail": "contains match: 'REC'",
+   "raw": "The letters REC appear next to the blinking red dot in the top-left corner of the desk shot.",
+   "category": "ocr-overlay"
+  },
+  "H039": {
+   "score": 1.0,
+   "detail": "contains match: 'chateau'",
+   "raw": "The chateau shot comes first in the video.",
+   "category": "spatial-order"
+  },
+  "H040": {
+   "score": 1.0,
+   "detail": "contains match: 'flat-lay'",
+   "raw": "The flat-lay overhead desk shot comes first, appearing from 00:39 to 00:44, before the mirrored cafe shot at 00:50.",
+   "category": "spatial-order"
+  },
+  "H041": {
+   "score": 1.0,
+   "detail": "contains match: 'dog'",
+   "raw": "The black dog appears near both the beginning and the end of the video.",
+   "category": "long-range-reappearance"
+  },
+  "H042": {
+   "score": 0.0,
+   "detail": "no match (normalized 'the camera pans to the right')",
+   "raw": "The camera pans to the right.",
+   "category": "motion-direction"
+  },
+  "H043": {
+   "score": 1.0,
+   "detail": "contains match: 'right'",
+   "raw": "The camera pans to the right.",
+   "category": "motion-direction"
+  },
+  "H044": {
+   "score": 0.0,
+   "detail": "zero: \"in the second appearance of the cafe table shot, the camera angle is slightly different, showing more of the table's length and the chairs on the side\"",
+   "raw": "In the second appearance of the cafe table shot, the camera angle is slightly different, showing more of the table's length and the chairs on the side.",
+   "category": "continuity-mismatch"
+  }
+ }
+}

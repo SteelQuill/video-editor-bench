@@ -1,0 +1,50 @@
+LOADED 44 harder questions
+UPLOADING /workspaces/video-editor-bench/benchmark/v2/benchmark.mp4
+asset id=6ad498703c19fccbbc9c35ff status=processing
+  asset ready (9s)
+ASSET READY 6ad498703c19fccbbc9c35ff in 8.5s
+ENTER H001 pass-1
+Q01 H001 p1 35.2s -> The dissolve from the flowers shot to the beach shot begins at the 11-second mark.
+ENTER H001 pass-2
+Q01 H001 p2 32.7s -> The dissolve from the flowers shot to the beach shot begins at the 11-second mark.
+ENTER H001 pass-3
+Q01 H001 p3 23.3s -> The dissolve from the flowers shot to the beach shot begins at 00:11.
+ENTER H001 pass-4
+Q01 H001 p4 44.6s -> The dissolve from the flowers shot to the beach shot begins at 00:11.
+ENTER H002 pass-1
+Q02 H002 p1 21.1s -> 26
+ENTER H002 pass-2
+Q02 H002 p2 48.1s -> The wipe from the chateau to the canal begins at 26 seconds.
+ENTER H002 pass-3
+Q02 H002 p3 18.6s -> 26.0
+ENTER H002 pass-4
+Q02 H002 p4 13.1s -> The wipe from the chateau to the canal begins at 00:26.
+ENTER H003 pass-1
+Q03 H003 p1 16.3s -> The dip-to-black transition from the canal to the cafe begins at the 31-second mark.
+ENTER H003 pass-2
+Q03 H003 p2 14.7s -> The dip-to-black transition from the canal to the cafe begins at 00:30.
+ENTER H003 pass-3
+Q03 H003 p3 9.9s -> The dip-to-black transition from the canal to the cafe begins at 00:31.
+ENTER H003 pass-4
+Q03 H003 p4 22.5s -> The dip-to-black transition from the canal to the cafe begins at 31 seconds.
+ENTER H004 pass-1
+Q04 H004 p1 29.9s -> 38 seconds
+ENTER H004 pass-2
+Q04 H004 p2 9.1s -> The transition from the MEANWHILE card to the desk shot begins at 00:38.
+ENTER H004 pass-3
+Q04 H004 p3 18.9s -> The transition from the MEANWHILE card to the desk shot begins at 00:38.
+ENTER H004 pass-4
+Q04 H004 p4 19.3s -> 38
+ENTER H005 pass-1
+Q05 H005 p1 16.4s -> 53.0 seconds
+ENTER H005 pass-2
+Q05 H005 p2 19.9s -> 53
+ENTER H005 pass-3
+Q05 H005 p3 15.0s -> 00:53
+ENTER H005 pass-4
+Q05 H005 p4 31.5s -> 53 seconds
+ENTER H006 pass-1
+Q06 H006 p1 25.2s -> Around 21 seconds, a dissolve transition connects the sea-view vista to the chateau.
+ENTER H006 pass-2
+Q06 H006 p2 14.0s -> The transition connecting the sea-view vista to the chateau around 21 seconds is a cross-dissolve.
+ENTER H006 pass-3
