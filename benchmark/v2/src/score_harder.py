@@ -60,13 +60,15 @@ def expand_phrases(text):
 def parse_word_number(text):
     """Return the first spelled-out number ('two', 'twice', 'a pair') as float."""
     t = str(text).lower()
-    for m in re.finditer(r"\b([a-z]+(?:\s+[a-z]+)?)\b", t):
-        phrase = m.group(1).strip()
-        if phrase in WORD_NUMS:
-            return float(WORD_NUMS[phrase]), "word"
-        first = phrase.split()[0]
-        if first in WORD_NUMS:
-            return float(WORD_NUMS[first]), "word"
+    # bigrams first ("a couple", "a pair"), then single tokens
+    for m in re.finditer(r"\b([a-z]+)\s+([a-z]+)\b", t):
+        bigram = "%s %s" % (m.group(1), m.group(2))
+        if bigram in WORD_NUMS:
+            return float(WORD_NUMS[bigram]), "word"
+    for m in re.finditer(r"\b([a-z]+)\b", t):
+        tok = m.group(1)
+        if tok in WORD_NUMS:
+            return float(WORD_NUMS[tok]), "word"
     return None, None
 
 
