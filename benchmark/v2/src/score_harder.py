@@ -27,6 +27,49 @@ def compact(s):
     return re.sub(r"[^a-z0-9]", "", norm(s))
 
 
+WORD_NUMS = {
+    "zero": 0, "one": 1, "two": 2, "three": 3, "four": 4, "five": 5,
+    "six": 6, "seven": 7, "eight": 8, "nine": 9, "ten": 10,
+    "eleven": 11, "twelve": 12, "thirteen": 13, "fourteen": 14,
+    "fifteen": 15, "sixteen": 16, "seventeen": 17, "eighteen": 18,
+    "nineteen": 19, "twenty": 20, "twice": 2, "thrice": 3,
+    "once": 1, "single": 1, "a couple": 2, "pair": 2,
+}
+
+# Accepted-phrase aliases so semantically identical refusals match.
+PHRASE_ALIASES = [
+    (r"\bnot\s+legible\b", "illegible"),
+    (r"\bnot\s+readable\b", "unreadable"),
+    (r"\bnot\s+visible\b", "not visible"),
+    (r"\bcannot\s+be\s+determined\b", "cannot determine"),
+    (r"\bcan\s+not\s+be\s+determined\b", "cannot determine"),
+    (r"\bcannot\s+be\s+read\b", "cannot read"),
+    (r"\bcan\s+not\s+be\s+read\b", "cannot read"),
+    (r"\bnot\s+determinable\b", "cannot determine"),
+    (r"\bunable\s+to\s+be\s+determined\b", "unable to determine"),
+]
+
+
+def expand_phrases(text):
+    t = str(text)
+    for pat, repl in PHRASE_ALIASES:
+        t = re.sub(pat, repl, t, flags=re.I)
+    return t
+
+
+def parse_word_number(text):
+    """Return the first spelled-out number ('two', 'twice', 'a pair') as float."""
+    t = str(text).lower()
+    for m in re.finditer(r"\b([a-z]+(?:\s+[a-z]+)?)\b", t):
+        phrase = m.group(1).strip()
+        if phrase in WORD_NUMS:
+            return float(WORD_NUMS[phrase]), "word"
+        first = phrase.split()[0]
+        if first in WORD_NUMS:
+            return float(WORD_NUMS[first]), "word"
+    return None, None
+
+
 def parse_number(text):
     t = str(text).lower()
     if "minute" in t:
@@ -47,7 +90,7 @@ def parse_number(text):
         if re.search(r"\bms\b|millisec", t) and v >= 5:
             return v / 1000.0, "ms"
         return v, None
-    return None, None
+    return parse_word_number(text)
 
 
 def parse_all_numbers(text):
@@ -76,14 +119,21 @@ def score_answer(rules, raw):
         return None, "na"
 
     if mode == "accepted":
+        # expand negations/paraphrases first: "not legible" -> "illegible",
+        # "cannot be determined" -> "cannot determine", etc.
+        ne = norm(expand_phrases(raw))
         for cand in rules["accepted"]:
-            if n == norm(cand) or c == compact(cand):
+            if ne == norm(cand) or compact(expand_phrases(raw)) == compact(cand):
                 return 1.0, "exact match: %r" % cand
         for cand in rules["accepted"]:
             cn = norm(cand)
-            if len(cn) >= 3 and (cn in n or n in cn):
+            if len(cn) >= 3 and cn in ne:
                 return 1.0, "contains match: %r" % cand
-        return 0.0, "no match (normalized %r)" % n
+        for cand in rules["accepted"]:
+            cn = norm(cand)
+            if len(cn) >= 6 and ne in cn:
+                return 1.0, "reverse-contains: %r" % cand
+        return 0.0, "no match (normalized %r)" % ne
 
     if mode == "tol":
         v, _ = parse_number(raw)
@@ -119,13 +169,18 @@ def score_answer(rules, raw):
         return 0.0, "|%s-%s|>%s" % (v, a, tol)
 
     if mode == "tiered":
+        ne = norm(expand_phrases(raw))
+        nc = compact(expand_phrases(raw))
         for sub in rules["full_substrings"]:
-            if norm(sub) in n:
+            if norm(sub) in ne or compact(sub) in nc:
                 return 1.0, "full: %r" % sub
         for sub in rules.get("half_substrings", []):
-            if norm(sub) == n or norm(sub) in n.split() or re.search(r"\b%s\b" % re.escape(norm(sub)), n):
+            sn = norm(sub)
+            if sn == ne or sn in ne.split() or re.search(r"\b%s\b" % re.escape(sn), ne):
                 return 0.5, "half: %r" % sub
-        return 0.0, "zero: %r" % n
+            if compact(sub) and compact(sub) in nc:
+                return 0.5, "half (compact): %r" % sub
+        return 0.0, "zero: %r" % ne
 
     if mode == "keyword_set":
         groups = rules["must_any"]
