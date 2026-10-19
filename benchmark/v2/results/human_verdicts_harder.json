@@ -1,0 +1,62 @@
+{
+  "schema": "human-verdicts/1",
+  "model": "twelvelabs pegasus1.5",
+  "judged_by": "human review against src/timeline.py ground truth",
+  "note": "Authoritative score. The deterministic scorer was found to under-credit 5 correct answers (word-numbers + negation paraphrases); after fixing those bugs it agrees with this hand scoring at 29/44.",
+  "verdicts": {
+    "H001": {"score": 1, "gt": "dissolve begins 11.0s", "why": "answered 00:11 - exact"},
+    "H002": {"score": 1, "gt": "wipe begins 26.0s", "why": "answered 26.0 - exact"},
+    "H003": {"score": 1, "gt": "dip-to-black begins 31.0s", "why": "answered 31-second mark - exact"},
+    "H004": {"score": 1, "gt": "slide begins 38.07s", "why": "answered 38.0 - within 0.35s tolerance"},
+    "H005": {"score": 1, "gt": "wipe begins 53.0s", "why": "answered 53 seconds - exact"},
+
+    "H006": {"score": 0, "gt": "zoom/scale blend at 21s", "why": "said dissolve - wrong type"},
+    "H007": {"score": 0, "gt": "dip-to-black at 31s", "why": "said dissolve - wrong type"},
+    "H008": {"score": 1, "gt": "slide up", "why": "said slide - correct type (direction detail wrong but not asked)"},
+    "H009": {"score": 0, "gt": "hard CUT at 16s", "why": "said cross-dissolve - there is no dissolve here at all"},
+    "H010": {"score": 1, "gt": "dissolve at 44s", "why": "said dissolve - correct"},
+
+    "H011": {"score": 0, "gt": "0.5s (15 frames)", "why": "said 2 seconds - 4x too long"},
+    "H012": {"score": 0, "gt": "0.33s (10 frames)", "why": "said 4 seconds - 12x too long"},
+    "H013": {"score": 0, "gt": "0.2s (6 frames)", "why": "said 4 seconds - 20x too long"},
+    "H014": {"score": 0, "gt": "0.2s (6 frames)", "why": "said 1 second - 5x too long"},
+    "H015": {"score": 0, "gt": "0.27s (8 frames)", "why": "said 3 seconds - 11x too long"},
+
+    "H016": {"score": 1, "gt": "wipe L->R", "why": "said left to right - correct"},
+    "H017": {"score": 1, "gt": "wipe R->L", "why": "said right to left - correct"},
+    "H018": {"score": 0, "gt": "slide UP (bottom to top)", "why": "said right to left - wrong axis entirely"},
+
+    "H019": {"score": 0, "gt": "chopped red onion / vegetables", "why": "said black Labrador puppy - wrong image"},
+    "H020": {"score": 0, "gt": "open book (book flash)", "why": "said black dog - wrong image"},
+    "H021": {"score": 1, "gt": "dissolve is far too long for its place in the edit", "why": "correctly diagnosed as an overlong dissolve disrupting pacing (duration magnitude exaggerated)"},
+
+    "H022": {"score": 1, "gt": "2 cups", "why": "said two cups - correct"},
+    "H023": {"score": 1, "gt": "2 appearances (dog bookends)", "why": "said twice, 00:02-00:06 and 00:59-01:02 - both ranges accurate"},
+    "H024": {"score": 1, "gt": "2 books", "why": "said two books - correct"},
+    "H025": {"score": 1, "gt": "3 text cards", "why": "said 3 - correct"},
+
+    "H026": {"score": 1, "gt": "not observable (blurred handwriting)", "why": "correctly refused: not legible due to resolution/angle"},
+    "H027": {"score": 1, "gt": "not observable (phone screen)", "why": "correctly refused: screen is not visible"},
+    "H028": {"score": 1, "gt": "not observable (car brand)", "why": "correctly refused: cannot be determined"},
+    "H029": {"score": 0, "gt": "not observable (blurred book text)", "why": "hallucinated 'back at the desk' - that is the MEANWHILE subtitle, not book text"},
+
+    "H030": {"score": 0, "gt": "15 segments", "why": "said 12 - undercount by 3"},
+    "H031": {"score": 1, "gt": "2 appearances", "why": "said twice - correct"},
+
+    "H032": {"score": 1, "gt": "WEEKEND CUT", "why": "exact"},
+    "H033": {"score": 1, "gt": "sat - sun", "why": "exact"},
+    "H034": {"score": 1, "gt": "the cut - 23:10", "why": "exact"},
+    "H035": {"score": 1, "gt": "back at the desk", "why": "exact"},
+    "H036": {"score": 1, "gt": "Symbol", "why": "exact"},
+    "H037": {"score": 1, "gt": "18", "why": "exact"},
+    "H038": {"score": 1, "gt": "REC", "why": "exact"},
+
+    "H039": {"score": 1, "gt": "chateau (21s) before canal (26s)", "why": "said chateau first - correct"},
+    "H040": {"score": 1, "gt": "flatlay (44s) before mirrored cafe (49.3s)", "why": "correct ordering (quoted times slightly loose)"},
+    "H041": {"score": 1, "gt": "black dog (bookend)", "why": "said black dog - correct"},
+
+    "H042": {"score": 0, "gt": "canal shot pans LEFT", "why": "said pans right - inverted"},
+    "H043": {"score": 1, "gt": "overhead desk shot pans RIGHT", "why": "said pans right - correct"},
+    "H044": {"score": 0, "gt": "second cafe is horizontally MIRRORED/FLIPPED", "why": "described a mild angle change; missed the mirror flip"}
+  }
+}
